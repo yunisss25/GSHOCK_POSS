@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{84405897-DD4F-4846-A5DD-33B3D86494CC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>GSHOCK_POS.My.MyApplication</StartupObject>
+    <StartupObject>Sub Main</StartupObject>
     <RootNamespace>GSHOCK_POS</RootNamespace>
     <AssemblyName>GSHOCK_POS</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -46,6 +46,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ExCSS, Version=4.2.3.0, Culture=neutral, PublicKeyToken=bdbe16be9b936b9a, processorArchitecture=MSIL">
@@ -154,10 +157,17 @@
     <Compile Include="ADMIN_WEEKLY.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="CARD_CASHIER.Designer.vb">
       <DependentUpon>CARD_CASHIER.vb</DependentUpon>
     </Compile>
     <Compile Include="CARD_CASHIER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CASHIER.Designer.vb">
+      <DependentUpon>CASHIER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CASHIER.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CASH_CASHIER.Designer.vb">
@@ -176,13 +186,6 @@
       <DependentUpon>ADMIN_DAILY.vb</DependentUpon>
     </Compile>
     <Compile Include="ADMIN_DAILY.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form2.Designer.vb">
@@ -215,6 +218,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>gshockDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Main.vb" />
+    <Compile Include="MANAGER.Designer.vb">
+      <DependentUpon>MANAGER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MANAGER.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="MANAGER_LOGIN.Designer.vb">
       <DependentUpon>MANAGER_LOGIN.vb</DependentUpon>
@@ -260,15 +270,9 @@
     <Compile Include="STARTUP.Designer.vb">
       <DependentUpon>STARTUP.vb</DependentUpon>
     </Compile>
-    <Compile Include="STARTUP.vb">
+    <SplashScreen Include="STARTUP.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ADMIN.Designer.vb">
-      <DependentUpon>ADMIN.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ADMIN.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    </SplashScreen>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ADMIN_C1.resx">
@@ -304,17 +308,20 @@
     <EmbeddedResource Include="CARD_CASHIER.resx">
       <DependentUpon>CARD_CASHIER.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CASHIER.resx">
+      <DependentUpon>CASHIER.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CASH_CASHIER.resx">
       <DependentUpon>CASH_CASHIER.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CASH_QR.resx">
       <DependentUpon>CASH_QR.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MANAGER.resx">
+      <DependentUpon>MANAGER.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MANAGER_LOGIN.resx">
       <DependentUpon>MANAGER_LOGIN.vb</DependentUpon>
@@ -336,9 +343,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="STARTUP.resx">
       <DependentUpon>STARTUP.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ADMIN.resx">
-      <DependentUpon>ADMIN.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -397,6 +401,7 @@
     <None Include="gshockDataSet4.xss">
       <DependentUpon>gshockDataSet4.xsd</DependentUpon>
     </None>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

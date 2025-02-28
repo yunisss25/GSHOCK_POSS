@@ -27,7 +27,7 @@ Public Class PRODUCT_LOOK_UP
     ' Load Inventory and Cart
     Private Sub LoadData()
         Try
-            Using con As New SqlConnection("Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
 
                 ' Load inventory data
@@ -66,7 +66,7 @@ Public Class PRODUCT_LOOK_UP
         If quantity <= 0 Then Exit Sub
 
         Try
-            Using con As New SqlConnection("Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
 
                 ' Retrieve product details from inventory
@@ -201,7 +201,7 @@ Public Class PRODUCT_LOOK_UP
         TextBox4.Clear()
 
         Try
-            Using con As New SqlConnection("Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
                 Dim cmd As New SqlCommand("DELETE FROM gshock.dbo.lookup", con)
                 cmd.ExecuteNonQuery()
@@ -217,8 +217,7 @@ Public Class PRODUCT_LOOK_UP
     ' Clear Cart when Form Closes
     Private Sub PRODUCT_LOOK_UP_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
-            Using con As New SqlConnection("Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-                con.Open()
+            Using con As New SqlConnection("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 Dim cmd As New SqlCommand("DELETE FROM gshock.dbo.lookup", con)
                 cmd.ExecuteNonQuery()
             End Using
@@ -247,10 +246,14 @@ Public Class PRODUCT_LOOK_UP
     End Sub
 
     Private Sub MP_Click(sender As Object, e As EventArgs)
-
+        Me.Show()
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        PAYMENT.Show()
     End Sub
 End Class

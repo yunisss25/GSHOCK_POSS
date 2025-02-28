@@ -31,6 +31,7 @@ Partial Class LOGIN
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Label1 = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
@@ -43,7 +44,7 @@ Partial Class LOGIN
         Label1.BackColor = System.Drawing.Color.Transparent
         Label1.Font = New System.Drawing.Font("Arial Black", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Label1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Label1.Location = New System.Drawing.Point(226, 89)
+        Label1.Location = New System.Drawing.Point(417, 150)
         Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Label1.Name = "Label1"
         Label1.Size = New System.Drawing.Size(584, 68)
@@ -54,8 +55,8 @@ Partial Class LOGIN
         '
         Me.TextBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TextBox1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(334, 278)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox1.Location = New System.Drawing.Point(525, 339)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(371, 26)
         Me.TextBox1.TabIndex = 3
@@ -66,7 +67,7 @@ Partial Class LOGIN
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 16.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(329, 233)
+        Me.Label2.Location = New System.Drawing.Point(520, 294)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 26)
@@ -78,8 +79,8 @@ Partial Class LOGIN
         Me.Button1.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.Button1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button1.Location = New System.Drawing.Point(627, 432)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button1.Location = New System.Drawing.Point(818, 493)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(78, 28)
         Me.Button1.TabIndex = 7
@@ -92,7 +93,7 @@ Partial Class LOGIN
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label4.Location = New System.Drawing.Point(406, 171)
+        Me.Label4.Location = New System.Drawing.Point(597, 232)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(233, 25)
@@ -105,7 +106,7 @@ Partial Class LOGIN
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 16.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(329, 342)
+        Me.Label3.Location = New System.Drawing.Point(520, 403)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(96, 26)
@@ -116,8 +117,8 @@ Partial Class LOGIN
         '
         Me.TextBox2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.TextBox2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(334, 381)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox2.Location = New System.Drawing.Point(525, 442)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(371, 26)
         Me.TextBox2.TabIndex = 11
@@ -125,12 +126,26 @@ Partial Class LOGIN
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox1)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1011, 47)
+        Me.Panel3.Size = New System.Drawing.Size(1386, 47)
         Me.Panel3.TabIndex = 26
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.Red
+        Me.btnClose.Location = New System.Drawing.Point(1314, 12)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(60, 24)
+        Me.btnClose.TabIndex = 5
+        Me.btnClose.Text = "X"
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -151,7 +166,7 @@ Partial Class LOGIN
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1011, 630)
+        Me.ClientSize = New System.Drawing.Size(1386, 788)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label3)
@@ -161,7 +176,7 @@ Partial Class LOGIN
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "LOGIN"
         Me.Text = "Form2"
         Me.Panel3.ResumeLayout(False)
@@ -178,4 +193,5 @@ Partial Class LOGIN
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnClose As Button
 End Class

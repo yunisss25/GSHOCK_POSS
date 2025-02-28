@@ -32,6 +32,7 @@ Partial Class PAYMENT
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MP = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -147,6 +148,18 @@ Partial Class PAYMENT
         Me.Button4.Text = "NEXT"
         Me.Button4.UseVisualStyleBackColor = False
         '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Button5.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Location = New System.Drawing.Point(244, 518)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(765, 55)
+        Me.Button5.TabIndex = 28
+        Me.Button5.Text = "NEW TRANSACTION"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'PAYMENT
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -154,6 +167,7 @@ Partial Class PAYMENT
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1386, 788)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Label1)
@@ -180,4 +194,5 @@ Partial Class PAYMENT
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents MP As Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents Button5 As Button
 End Class

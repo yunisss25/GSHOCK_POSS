@@ -3,46 +3,44 @@ Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class ADMIN_DAILY
 
-    ' Your connection string (adjust if needed)
-    Dim connectionString As String = "Data Source=localhost;Initial Catalog=GSHOCK;Integrated Security=True"
+    ' SQL Connection String
+    Dim conn As New SqlConnection("Data Source=192.168.2.113;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
 
     Private Sub ADMIN_DAILY_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadSalesData()
+        LoadTotalPrice()
     End Sub
 
-    Private Sub LoadSalesData()
-        ' Clear old points
-        Chart1.Series("Series1").Points.Clear()
+    ' ======== CHART 1: Total Price (Overall) ========
+    Private Sub LoadTotalPrice()
+        Dim totalPrice As Decimal = 0
 
-        ' SQL query to get the prices
-        Dim query As String = "SELECT price FROM gshock.dbo.product"
+        Dim cmd As New SqlCommand("SELECT SUM(price) FROM products", conn)
 
-        Using connection As New SqlConnection(connectionString)
-            Try
-                connection.Open()
+        Try
+            conn.Open()
+            Dim result = cmd.ExecuteScalar()
 
-                Dim command As New SqlCommand(query, connection)
-                Dim reader As SqlDataReader = command.ExecuteReader()
+            If result IsNot DBNull.Value AndAlso result IsNot Nothing Then
+                totalPrice = Convert.ToDecimal(result)
+            End If
 
-                Dim dayCounter As Integer = 1
+        Catch ex As Exception
+            MessageBox.Show("Error retrieving total price: " & ex.Message)
+        Finally
+            conn.Close()
+        End Try
 
-                While reader.Read()
-                    Dim price As Decimal = reader.GetDecimal(0)
-
-                    ' Add each price to the chart, use dayCounter as X value
-                    Chart1.Series("Series1").Points.AddXY(dayCounter, price)
-
-                    dayCounter += 1
-                End While
-
-            Catch ex As Exception
-                MessageBox.Show("Error loading data: " & ex.Message)
-            End Try
-        End Using
+        ' Display in Chart1
+        Chart1.Series.Clear()
+        Chart1.Series.Add("Series1")
+        Chart1.Series("Series1").ChartType = SeriesChartType.Column
+        Chart1.Series("Series1").Points.AddXY("Total", totalPrice)
     End Sub
 
+    ' No need to show this form again
     Private Sub DAILY_Click(sender As Object, e As EventArgs) Handles DAILY.Click
-        Me.Show()
+        ' Do nothing or optionally refresh chart if needed
+        LoadTotalPrice()
     End Sub
 
     Private Sub WEEKLY_Click(sender As Object, e As EventArgs) Handles WEEKLY.Click
@@ -67,5 +65,17 @@ Public Class ADMIN_DAILY
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
+    End Sub
+
+    Private Sub Chart1_Click(sender As Object, e As EventArgs) Handles Chart1.Click
+        ' Optional: show tooltip or details on click
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        ' Reserved for future use
+    End Sub
+
+    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
+
     End Sub
 End Class

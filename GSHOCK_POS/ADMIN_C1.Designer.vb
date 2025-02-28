@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ADMIN_C1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ADMIN_C1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
@@ -114,7 +114,7 @@ Partial Class ADMIN_C1
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1370, 47)
+        Me.Panel1.Size = New System.Drawing.Size(1366, 47)
         Me.Panel1.TabIndex = 1
         '
         'btnClose
@@ -206,7 +206,7 @@ Partial Class ADMIN_C1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.ClientSize = New System.Drawing.Size(1366, 745)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.Label4)
@@ -215,7 +215,7 @@ Partial Class ADMIN_C1
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Name = "ADMIN_C1"
         Me.Text = "X"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()

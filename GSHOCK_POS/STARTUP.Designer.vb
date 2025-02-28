@@ -24,12 +24,12 @@ Partial Class STARTUP
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(STARTUP))
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -44,6 +44,19 @@ Partial Class STARTUP
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1386, 47)
         Me.Panel3.TabIndex = 27
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.Red
+        Me.btnClose.Location = New System.Drawing.Point(1278, 12)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(60, 24)
+        Me.btnClose.TabIndex = 5
+        Me.btnClose.Text = "X"
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -102,19 +115,6 @@ Partial Class STARTUP
         Me.Label1.Size = New System.Drawing.Size(1236, 123)
         Me.Label1.TabIndex = 31
         Me.Label1.Text = "SELECT YOUR POSITION"
-        '
-        'btnClose
-        '
-        Me.btnClose.BackColor = System.Drawing.Color.Transparent
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.ForeColor = System.Drawing.Color.Red
-        Me.btnClose.Location = New System.Drawing.Point(1278, 12)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(60, 24)
-        Me.btnClose.TabIndex = 5
-        Me.btnClose.Text = "X"
-        Me.btnClose.UseVisualStyleBackColor = False
         '
         'STARTUP
         '

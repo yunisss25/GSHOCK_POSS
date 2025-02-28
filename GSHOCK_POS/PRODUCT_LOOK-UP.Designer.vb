@@ -66,6 +66,7 @@ Partial Class PRODUCT_LOOK_UP
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GshockDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,7 +114,7 @@ Partial Class PRODUCT_LOOK_UP
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(671, 184)
+        Me.DataGridView1.Size = New System.Drawing.Size(801, 184)
         Me.DataGridView1.TabIndex = 2
         '
         'ProductsBindingSource
@@ -238,7 +239,7 @@ Partial Class PRODUCT_LOOK_UP
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Arial Narrow", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(803, 680)
+        Me.Button2.Location = New System.Drawing.Point(804, 711)
         Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(194, 26)
@@ -421,7 +422,7 @@ Partial Class PRODUCT_LOOK_UP
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Location = New System.Drawing.Point(520, 470)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(671, 150)
+        Me.DataGridView2.Size = New System.Drawing.Size(801, 150)
         Me.DataGridView2.TabIndex = 27
         '
         'LookupBindingSource2
@@ -501,6 +502,17 @@ Partial Class PRODUCT_LOOK_UP
         Me.Label13.TabIndex = 30
         Me.Label13.Text = "CART:"
         '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Arial Narrow", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(803, 675)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(195, 26)
+        Me.Button3.TabIndex = 31
+        Me.Button3.Text = "PROCEED TO PAYMENT"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'PRODUCT_LOOK_UP
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -508,6 +520,7 @@ Partial Class PRODUCT_LOOK_UP
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1386, 788)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Panel3)
@@ -599,4 +612,5 @@ Partial Class PRODUCT_LOOK_UP
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
+    Friend WithEvents Button3 As Button
 End Class

@@ -29,12 +29,17 @@
             MessageBox.Show("Please enter a valid cardholder's name (letters only).", "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
+
         ' Ensure the cardholder name is always in uppercase
         txtCardholderName.Text = txtCardholderName.Text.ToUpper()
 
         ' If everything is valid, show a success message
         MessageBox.Show("Card details are valid. Proceeding with payment.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        ' After successful validation, show the PRODUCT_LOOK_UP form
+        PRODUCT_LOOK_UP.Show()
     End Sub
+
 
     ' Function to validate Card Number (16 digits, only numbers)
     Private Function IsValidCardNumber(cardNumber As String) As Boolean
