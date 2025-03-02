@@ -175,6 +175,12 @@
     <Compile Include="CASHIER.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CASHIER_DAILY.Designer.vb">
+      <DependentUpon>CASHIER_DAILY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CASHIER_DAILY.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CASH_CASHIER.Designer.vb">
       <DependentUpon>CASH_CASHIER.vb</DependentUpon>
     </Compile>
@@ -355,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CASHIER.resx">
       <DependentUpon>CASHIER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CASHIER_DAILY.resx">
+      <DependentUpon>CASHIER_DAILY.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CASH_CASHIER.resx">
       <DependentUpon>CASH_CASHIER.vb</DependentUpon>

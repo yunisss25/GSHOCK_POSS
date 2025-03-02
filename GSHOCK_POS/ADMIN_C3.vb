@@ -5,7 +5,22 @@ Public Class ADMIN_C3
     ' SQL Connection String
     Dim conn As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
 
+    ' Reference to previous form (Admin or Manager)
+    Private previousForm As Form
+
+    ' Constructor to receive previous form
+    Public Sub New(prev As Form)
+        InitializeComponent()
+        previousForm = prev
+    End Sub
+
+    ' On load, populate charts
     Private Sub ADMIN_C3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RefreshSales()
+    End Sub
+
+    ' ======== Refresh all charts ========
+    Private Sub RefreshSales()
         LoadDailySales()
         LoadWeeklySales()
         LoadMonthlySales()
@@ -15,7 +30,7 @@ Public Class ADMIN_C3
     Private Sub LoadDailySales()
         Dim dailySales As Decimal = 0
         Dim cmdText As String = "SELECT ISNULL(SUM(total), 0) FROM gshock.dbo.lookup " &
-                               "WHERE CAST([date] AS DATE) = CAST(GETDATE() AS DATE)"
+                                "WHERE CAST([date] AS DATE) = CAST(GETDATE() AS DATE)"
 
         Try
             conn.Open()
@@ -28,7 +43,6 @@ Public Class ADMIN_C3
             series.Points.AddXY("TODAY", dailySales)
             Chart1.Series.Add(series)
 
-            ' Formatting
             series.IsValueShownAsLabel = True
             series.LabelFormat = "₱#,##0.00"
             Chart1.Titles.Clear()
@@ -38,9 +52,7 @@ Public Class ADMIN_C3
         Catch ex As Exception
             MessageBox.Show("Error retrieving daily sales: " & ex.Message)
         Finally
-            If conn.State = ConnectionState.Open Then
-                conn.Close()
-            End If
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
     End Sub
 
@@ -48,8 +60,8 @@ Public Class ADMIN_C3
     Private Sub LoadWeeklySales()
         Dim weeklySales As Decimal = 0
         Dim cmdText As String = "SELECT ISNULL(SUM(total), 0) FROM gshock.dbo.lookup " &
-                               "WHERE [date] >= DATEADD(day, -7, CAST(GETDATE() AS DATE)) " &
-                               "AND [date] <= GETDATE()"
+                                "WHERE [date] >= DATEADD(day, -7, CAST(GETDATE() AS DATE)) " &
+                                "AND [date] <= GETDATE()"
 
         Try
             conn.Open()
@@ -62,7 +74,6 @@ Public Class ADMIN_C3
             series.Points.AddXY("LAST 7 DAYS", weeklySales)
             Chart2.Series.Add(series)
 
-            ' Formatting
             series.IsValueShownAsLabel = True
             series.LabelFormat = "₱#,##0.00"
             Chart2.Titles.Clear()
@@ -72,9 +83,7 @@ Public Class ADMIN_C3
         Catch ex As Exception
             MessageBox.Show("Error retrieving weekly sales: " & ex.Message)
         Finally
-            If conn.State = ConnectionState.Open Then
-                conn.Close()
-            End If
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
     End Sub
 
@@ -82,8 +91,8 @@ Public Class ADMIN_C3
     Private Sub LoadMonthlySales()
         Dim monthlySales As Decimal = 0
         Dim cmdText As String = "SELECT ISNULL(SUM(total), 0) FROM gshock.dbo.lookup " &
-                               "WHERE [date] >= DATEADD(month, -1, CAST(GETDATE() AS DATE)) " &
-                               "AND [date] <= GETDATE()"
+                                "WHERE [date] >= DATEADD(month, -1, CAST(GETDATE() AS DATE)) " &
+                                "AND [date] <= GETDATE()"
 
         Try
             conn.Open()
@@ -96,7 +105,6 @@ Public Class ADMIN_C3
             series.Points.AddXY("LAST 30 DAYS", monthlySales)
             Chart3.Series.Add(series)
 
-            ' Formatting
             series.IsValueShownAsLabel = True
             series.LabelFormat = "₱#,##0.00"
             Chart3.Titles.Clear()
@@ -106,15 +114,13 @@ Public Class ADMIN_C3
         Catch ex As Exception
             MessageBox.Show("Error retrieving monthly sales: " & ex.Message)
         Finally
-            If conn.State = ConnectionState.Open Then
-                conn.Close()
-            End If
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
     End Sub
 
-    ' ======== Close Button ========
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Application.Exit()
+    ' ======== Refresh Button ========
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        RefreshSales()
     End Sub
 
     ' ======== Product Lookup Button ========
@@ -123,14 +129,23 @@ Public Class ADMIN_C3
         Me.Hide()
     End Sub
 
-    ' ======== Refresh Button ========
-    Private Sub btnRefresh_Click(sender As Object, e As EventArgs)
-        LoadDailySales()
-        LoadWeeklySales()
-        LoadMonthlySales()
+    ' ======== Return Button ========
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        If previousForm IsNot Nothing Then
+            previousForm.Show()
+            Me.Close()
+        Else
+            MessageBox.Show("Previous form not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
 
+    ' ======== Close App Button ========
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Application.Exit()
+    End Sub
+
+    ' Optional — Remove if unused
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
     End Sub
+
 End Class
