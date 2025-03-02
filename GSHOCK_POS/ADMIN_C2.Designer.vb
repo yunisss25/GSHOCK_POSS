@@ -72,7 +72,7 @@ Partial Class ADMIN_C2
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1370, 47)
+        Me.Panel1.Size = New System.Drawing.Size(1386, 47)
         Me.Panel1.TabIndex = 14
         '
         'btnClose
@@ -206,7 +206,7 @@ Partial Class ADMIN_C2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.ClientSize = New System.Drawing.Size(1386, 788)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Chart2)

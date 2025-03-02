@@ -2,122 +2,126 @@
 Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class ADMIN_C1
-
     ' SQL Connection String
-    Dim conn As New SqlConnection("Data Source=192.168.2.113;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+    Dim conn As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
 
     Private Sub ADMIN_C1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadTotalPrice()
-        LoadWeeklyTotal()
-        LoadMonthlyTotal()
+        LoadDailySales()
+        LoadWeeklySales()
+        LoadMonthlySales()
     End Sub
 
-    ' ======== CHART 1: Total Price (Today) ========
-    Private Sub LoadTotalPrice()
-        Dim totalPrice As Decimal = 0
-
-        Dim cmd As New SqlCommand("SELECT SUM(price) FROM products", conn)
+    ' ======== CHART 1: Daily Sales ========
+    Private Sub LoadDailySales()
+        Dim dailySales As Decimal = 0
+        Dim cmdText As String = "SELECT ISNULL(SUM(total), 0) FROM gshock.dbo.lookup " &
+                            "WHERE CAST([date] AS DATE) = CAST(GETDATE() AS DATE)"
 
         Try
             conn.Open()
-            Dim result = cmd.ExecuteScalar()
+            Dim cmd As New SqlCommand(cmdText, conn)
+            dailySales = Convert.ToDecimal(cmd.ExecuteScalar())
 
-            If result IsNot DBNull.Value Then
-                totalPrice = Convert.ToDecimal(result)
-            End If
+            Chart1.Series.Clear()
+            Dim series As New Series("DAILY SALES")
+            series.ChartType = SeriesChartType.Column
+            series.Points.AddXY("TODAY", dailySales)
+            series.IsValueShownAsLabel = True
+            series.LabelFormat = "₱#,##0.00"
+
+            Chart1.Series.Add(series)
+            Chart1.Titles.Clear()
+            Chart1.Titles.Add("Today's Sales")
+            Chart1.ChartAreas(0).AxisY.LabelStyle.Format = "₱#,##0"
+            Chart1.Invalidate()
 
         Catch ex As Exception
-            MessageBox.Show("Error retrieving total price: " & ex.Message)
+            MessageBox.Show("Error retrieving daily sales: " & ex.Message)
         Finally
-            conn.Close()
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
-
-        Chart1.Series.Clear()
-        Chart1.Series.Add("DAILY")
-        Chart1.Series("DAILY").ChartType = SeriesChartType.Column
-        Chart1.Series("DAILY").Points.AddXY("TODAY", totalPrice)
     End Sub
 
-    ' ======== CHART 2: Weekly Total (Today * 7) ========
-    Private Sub LoadWeeklyTotal()
-        Dim totalPriceToday As Decimal = 0
-        Chart2.Series.Clear()
-        Dim series As New Series("WEEKLY")
-        series.ChartType = SeriesChartType.Column
-        Chart2.Series.Add(series)
+    ' ======== CHART 2: Weekly Sales ========
+    Private Sub LoadWeeklySales()
+        Dim weeklySales As Decimal = 0
+        Dim cmdText As String = "SELECT ISNULL(SUM(total), 0) FROM gshock.dbo.lookup " &
+                            "WHERE [date] >= DATEADD(DAY, -6, CAST(GETDATE() AS DATE)) " &
+                            "AND [date] <= GETDATE()"
 
         Try
             conn.Open()
-            Dim cmd As New SqlCommand("SELECT ISNULL(SUM([total]), 0) FROM products WHERE CAST([date] AS DATE) = CAST(GETDATE() AS DATE)", conn)
-            Dim result = cmd.ExecuteScalar()
+            Dim cmd As New SqlCommand(cmdText, conn)
+            weeklySales = Convert.ToDecimal(cmd.ExecuteScalar())
 
-            If result IsNot DBNull.Value Then
-                totalPriceToday = Convert.ToDecimal(result)
-            End If
+            Chart2.Series.Clear()
+            Dim series As New Series("WEEKLY SALES")
+            series.ChartType = SeriesChartType.Column
+            series.Points.AddXY("LAST 7 DAYS", weeklySales)
+            series.IsValueShownAsLabel = True
+            series.LabelFormat = "₱#,##0.00"
 
-            ' Multiply today's total by 7 for weekly estimate
-            Dim weeklyTotal As Decimal = totalPriceToday * 7
-            series.Points.AddXY("WEEKLY (EST.)", weeklyTotal)
+            Chart2.Series.Add(series)
+            Chart2.Titles.Clear()
+            Chart2.Titles.Add("Weekly Sales")
+            Chart2.ChartAreas(0).AxisY.LabelStyle.Format = "₱#,##0"
+            Chart2.Invalidate()
 
         Catch ex As Exception
-            MessageBox.Show("Error calculating weekly total: " & ex.Message)
+            MessageBox.Show("Error retrieving weekly sales: " & ex.Message)
         Finally
-            conn.Close()
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
     End Sub
 
-
-    ' ======== CHART 3: Monthly Totals ========
-    Private Sub LoadMonthlyTotal()
-        Dim totalPriceToday As Decimal = 0
-        Chart3.Series.Clear()
-        Dim series As New Series("MONTHLY")
-        series.ChartType = SeriesChartType.Column
-        Chart3.Series.Add(series)
+    ' ======== CHART 3: Monthly Sales ========
+    Private Sub LoadMonthlySales()
+        Dim monthlySales As Decimal = 0
+        Dim cmdText As String = "SELECT ISNULL(SUM(total), 0) FROM gshock.dbo.lookup " &
+                            "WHERE [date] >= DATEADD(DAY, -29, CAST(GETDATE() AS DATE)) " &
+                            "AND [date] <= GETDATE()"
 
         Try
             conn.Open()
-            Dim cmd As New SqlCommand("SELECT ISNULL(SUM([price]), 0) FROM products WHERE CAST([date] AS DATE) = CAST(GETDATE() AS DATE)", conn)
-            Dim result = cmd.ExecuteScalar()
+            Dim cmd As New SqlCommand(cmdText, conn)
+            monthlySales = Convert.ToDecimal(cmd.ExecuteScalar())
 
-            If result IsNot DBNull.Value Then
-                totalPriceToday = Convert.ToDecimal(result)
-            End If
+            Chart3.Series.Clear()
+            Dim series As New Series("MONTHLY SALES")
+            series.ChartType = SeriesChartType.Column
+            series.Points.AddXY("LAST 30 DAYS", monthlySales)
+            series.IsValueShownAsLabel = True
+            series.LabelFormat = "₱#,##0.00"
 
-            ' Multiply today's total by 30 for monthly estimate
-            Dim monthlyEstimate As Decimal = totalPriceToday * 30
-            series.Points.AddXY("MONTHLY (EST.)", monthlyEstimate)
+            Chart3.Series.Add(series)
+            Chart3.Titles.Clear()
+            Chart3.Titles.Add("Monthly Sales")
+            Chart3.ChartAreas(0).AxisY.LabelStyle.Format = "₱#,##0"
+            Chart3.Invalidate()
 
         Catch ex As Exception
-            MessageBox.Show("Error calculating monthly total: " & ex.Message)
+            MessageBox.Show("Error retrieving monthly sales: " & ex.Message)
         Finally
-            conn.Close()
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
     End Sub
-
 
     ' ======== Close Button ========
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
+        Application.Exit()
     End Sub
 
     ' ======== Product Lookup Button ========
     Private Sub MP_Click(sender As Object, e As EventArgs) Handles MP.Click
-        PRODUCT_LOOK_UP.Show()
+        ADMIN_SALES_OVERVIEW.Show()
         Me.Hide()
     End Sub
 
-    ' ======== Optional Chart Click Handlers ========
-    Private Sub Chart1_Click(sender As Object, e As EventArgs) Handles Chart1.Click
-        ' Optional: Implement chart click behavior
-    End Sub
-
-    Private Sub Chart2_Click(sender As Object, e As EventArgs) Handles Chart2.Click
-        ' Optional: Implement chart click behavior
-    End Sub
-
-    Private Sub Chart3_Click(sender As Object, e As EventArgs) Handles Chart3.Click
-        ' Optional: Implement chart click behavior
+    ' ======== Refresh Button ========
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs)
+        LoadDailySales()
+        LoadWeeklySales()
+        LoadMonthlySales()
     End Sub
 
 End Class

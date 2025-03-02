@@ -114,7 +114,7 @@ Partial Class ADMIN_C1
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1366, 47)
+        Me.Panel1.Size = New System.Drawing.Size(1386, 47)
         Me.Panel1.TabIndex = 1
         '
         'btnClose
@@ -206,7 +206,7 @@ Partial Class ADMIN_C1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1366, 745)
+        Me.ClientSize = New System.Drawing.Size(1386, 788)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.Label4)
@@ -215,7 +215,7 @@ Partial Class ADMIN_C1
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ADMIN_C1"
         Me.Text = "X"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()

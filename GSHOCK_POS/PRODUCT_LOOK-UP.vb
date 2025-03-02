@@ -3,7 +3,7 @@
 Public Class PRODUCT_LOOK_UP
 
     ' Connection String
-    Private con As New SqlConnection("Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+    Private con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
     Private total As Decimal = 0
 
     ' Store matched products
@@ -19,24 +19,20 @@ Public Class PRODUCT_LOOK_UP
         Public Property Quantity As Integer
     End Class
 
-    ' Load data on form load
     Private Sub PRODUCT_LOOK_UP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadData()
     End Sub
 
-    ' Load Inventory and Cart
     Private Sub LoadData()
         Try
-            Using con As New SqlConnection("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
 
-                ' Load inventory data
                 Dim inventoryAdapter As New SqlDataAdapter("SELECT * FROM gshock.dbo.products", con)
                 Dim inventoryTable As New DataTable()
                 inventoryAdapter.Fill(inventoryTable)
                 DataGridView1.DataSource = inventoryTable
 
-                ' Load cart data
                 Dim cartAdapter As New SqlDataAdapter("SELECT * FROM gshock.dbo.lookup", con)
                 Dim cartTable As New DataTable()
                 cartAdapter.Fill(cartTable)
@@ -47,7 +43,6 @@ Public Class PRODUCT_LOOK_UP
         End Try
     End Sub
 
-    ' Add to Cart Button
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
         If Not String.IsNullOrWhiteSpace(TextBox5.Text) AndAlso IsNumeric(TextBox1.Text) Then
             Dim quantity As Integer = Convert.ToInt32(TextBox1.Text)
@@ -61,15 +56,13 @@ Public Class PRODUCT_LOOK_UP
         End If
     End Sub
 
-    ' Add Product to Cart Logic
     Private Sub AddToCart(productId As String, productName As String, quantity As Integer)
         If quantity <= 0 Then Exit Sub
 
         Try
-            Using con As New SqlConnection("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
 
-                ' Retrieve product details from inventory
                 Dim cmd As New SqlCommand("SELECT id, productname, series, price, quantity FROM gshock.dbo.products WHERE id = @id", con)
                 cmd.Parameters.AddWithValue("@id", productId)
 
@@ -78,24 +71,27 @@ Public Class PRODUCT_LOOK_UP
                         Dim stock As Integer = Convert.ToInt32(reader("quantity"))
                         Dim price As Decimal = Convert.ToDecimal(reader("price"))
                         Dim series As String = reader("series").ToString()
+                        Dim Name As String = reader("productname").ToString()
                         reader.Close()
 
-                        ' Check stock availability
                         If stock >= quantity Then
                             Dim totalPrice As Decimal = price * quantity
                             total += totalPrice
 
-                            ' Update inventory and cart
-                            UpdateInventory(con, productId, quantity)
-                            UpdateCart(con, productId, productName, series, quantity, totalPrice)
+                            Dim updateTotalCmd As New SqlCommand("UPDATE gshock.dbo.products SET total = @total WHERE id = @id", con)
+                            updateTotalCmd.Parameters.AddWithValue("@total", price * stock)
+                            updateTotalCmd.Parameters.AddWithValue("@id", productId)
+                            updateTotalCmd.ExecuteNonQuery()
 
-                            ' Refresh UI and reset input fields
+                            UpdateInventory(con, productId, quantity)
+                            UpdateCart(con, productId, Name, series, quantity, totalPrice)
+
                             TextBox2.Text = total.ToString("F2")
                             ClearProductFields()
                             LoadData()
                         Else
-                            MessageBox.Show("Not enough stock for " & productName)
-                            Me.Close() ' Close the form if stock is insufficient
+                            MessageBox.Show("Not enough stock for " & Name)
+                            Me.Close()
                         End If
                     Else
                         MessageBox.Show("Product not found!")
@@ -107,7 +103,6 @@ Public Class PRODUCT_LOOK_UP
         End Try
     End Sub
 
-    ' Update Inventory Stock
     Private Sub UpdateInventory(con As SqlConnection, productId As String, quantity As Integer)
         Try
             Using cmd As New SqlCommand("UPDATE gshock.dbo.products SET quantity = quantity - @quantity WHERE id = @id", con)
@@ -120,47 +115,6 @@ Public Class PRODUCT_LOOK_UP
         End Try
     End Sub
 
-    ' Update or Insert into Cart
-    Private Sub UpdateCart(con As SqlConnection, productId As String, productName As String, series As String, quantity As Integer, totalPrice As Decimal)
-        Try
-            Using cmd As New SqlCommand("SELECT quantity, price FROM gshock.dbo.lookup WHERE id = @id", con)
-                cmd.Parameters.AddWithValue("@id", productId)
-
-                Using reader As SqlDataReader = cmd.ExecuteReader()
-                    If reader.Read() Then
-                        ' Update existing product in cart
-                        Dim existingQuantity As Integer = Convert.ToInt32(reader("quantity"))
-                        Dim existingPrice As Decimal = Convert.ToDecimal(reader("price"))
-                        reader.Close()
-
-                        ' Update cart with new quantity and price
-                        Using updateCmd As New SqlCommand("UPDATE gshock.dbo.lookup SET quantity = @newQuantity, price = @newPrice WHERE id = @id", con)
-                            updateCmd.Parameters.AddWithValue("@newQuantity", existingQuantity + quantity)
-                            updateCmd.Parameters.AddWithValue("@newPrice", existingPrice + totalPrice)
-                            updateCmd.Parameters.AddWithValue("@id", productId)
-                            updateCmd.ExecuteNonQuery()
-                        End Using
-                    Else
-                        reader.Close()
-
-                        ' Insert new product into cart if not found
-                        Using insertCmd As New SqlCommand("INSERT INTO gshock.dbo.lookup (id, productname, quantity, price, series) VALUES (@id, @productname, @quantity, @price, @series)", con)
-                            insertCmd.Parameters.AddWithValue("@id", productId)
-                            insertCmd.Parameters.AddWithValue("@productname", productName)
-                            insertCmd.Parameters.AddWithValue("@quantity", quantity)
-                            insertCmd.Parameters.AddWithValue("@price", totalPrice)
-                            insertCmd.Parameters.AddWithValue("@series", series)
-                            insertCmd.ExecuteNonQuery()
-                        End Using
-                    End If
-                End Using
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Error updating cart: " & ex.Message)
-        End Try
-    End Sub
-
-    ' Clear Product Input Fields
     Private Sub ClearProductFields()
         TextBox5.Clear()
         TextBox6.Clear()
@@ -169,7 +123,6 @@ Public Class PRODUCT_LOOK_UP
         TextBox1.Clear()
     End Sub
 
-    ' Process Payment
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim payment As Decimal
         If Decimal.TryParse(TextBox3.Text, payment) Then
@@ -187,12 +140,10 @@ Public Class PRODUCT_LOOK_UP
         End If
     End Sub
 
-    ' Start New Transaction
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         StartNewTransaction()
     End Sub
 
-    ' Start New Transaction Logic
     Private Sub StartNewTransaction()
         total = 0
         TextBox1.Text = "1"
@@ -201,7 +152,7 @@ Public Class PRODUCT_LOOK_UP
         TextBox4.Clear()
 
         Try
-            Using con As New SqlConnection("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
                 Dim cmd As New SqlCommand("DELETE FROM gshock.dbo.lookup", con)
                 cmd.ExecuteNonQuery()
@@ -214,10 +165,9 @@ Public Class PRODUCT_LOOK_UP
         LoadData()
     End Sub
 
-    ' Clear Cart when Form Closes
     Private Sub PRODUCT_LOOK_UP_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
-            Using con As New SqlConnection("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 Dim cmd As New SqlCommand("DELETE FROM gshock.dbo.lookup", con)
                 cmd.ExecuteNonQuery()
             End Using
@@ -226,22 +176,20 @@ Public Class PRODUCT_LOOK_UP
         End Try
     End Sub
 
-    ' Numeric input only for certain textboxes
     Private Sub TextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress, TextBox2.KeyPress, TextBox3.KeyPress, TextBox4.KeyPress
         If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
 
-    ' Handle DataGridView cell click to populate textboxes
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         If e.RowIndex >= 0 Then
             Dim row As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
-            TextBox5.Text = row.Cells("id").Value.ToString() ' ID
-            TextBox6.Text = row.Cells("productname").Value.ToString() ' ProductName
-            TextBox7.Text = row.Cells("series").Value.ToString() ' Series
-            TextBox8.Text = row.Cells("price").Value.ToString() ' Price
-            TextBox1.Text = row.Cells("quantity").Value.ToString() ' Quantity
+            TextBox5.Text = row.Cells("id").Value.ToString()
+            TextBox6.Text = row.Cells("productname").Value.ToString()
+            TextBox7.Text = row.Cells("series").Value.ToString()
+            TextBox8.Text = row.Cells("price").Value.ToString()
+            TextBox1.Text = row.Cells("quantity").Value.ToString()
         End If
     End Sub
 
@@ -250,10 +198,91 @@ Public Class PRODUCT_LOOK_UP
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
+        Application.Exit()
     End Sub
+
+    Private Sub UpdateCart(con As SqlConnection, productId As String, productName As String, series As String, quantity As Integer, totalPrice As Decimal)
+        Try
+            Using cmd As New SqlCommand("SELECT quantity, price FROM gshock.dbo.lookup WHERE id = @id", con)
+                cmd.Parameters.AddWithValue("@id", productId)
+
+                Using reader As SqlDataReader = cmd.ExecuteReader()
+                    If reader.Read() Then
+                        Dim existingQuantity As Integer = Convert.ToInt32(reader("quantity"))
+                        Dim existingPrice As Decimal = Convert.ToDecimal(reader("price"))
+                        reader.Close()
+
+                        Dim newQuantity As Integer = existingQuantity + quantity
+                        Dim newTotalPrice As Decimal = existingPrice + totalPrice
+
+                        Using updateCmd As New SqlCommand("UPDATE gshock.dbo.lookup SET quantity = @newQuantity, price = @newPrice, total = @newTotal, [date] = @date WHERE id = @id", con)
+                            updateCmd.Parameters.AddWithValue("@newQuantity", newQuantity)
+                            updateCmd.Parameters.AddWithValue("@newPrice", newTotalPrice)
+                            updateCmd.Parameters.AddWithValue("@newTotal", newTotalPrice) ' ✅ update total column
+                            updateCmd.Parameters.AddWithValue("@date", DateTime.Now)
+                            updateCmd.Parameters.AddWithValue("@id", productId)
+                            updateCmd.ExecuteNonQuery()
+                        End Using
+                    Else
+                        reader.Close()
+                        Using insertCmd As New SqlCommand("INSERT INTO gshock.dbo.lookup (id, productname, quantity, price, total, series, [date]) VALUES (@id, @productname, @quantity, @price, @total, @series, @date)", con)
+                            insertCmd.Parameters.AddWithValue("@id", productId)
+                            insertCmd.Parameters.AddWithValue("@productname", productName)
+                            insertCmd.Parameters.AddWithValue("@quantity", quantity)
+                            insertCmd.Parameters.AddWithValue("@price", totalPrice)
+                            insertCmd.Parameters.AddWithValue("@total", totalPrice) ' ✅ insert into total column
+                            insertCmd.Parameters.AddWithValue("@series", series)
+                            insertCmd.Parameters.AddWithValue("@date", DateTime.Now)
+                            insertCmd.ExecuteNonQuery()
+                        End Using
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error updating cart: " & ex.Message)
+        End Try
+    End Sub
+
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         PAYMENT.Show()
+    End Sub
+
+    ' ✅ Search functionality using TextBox9 (product ID input)
+    Private Sub TextBox9_TextChanged(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
+        Dim productId As String = TextBox9.Text.Trim()
+
+        If productId = "" Then
+            TextBox5.Clear()
+            TextBox6.Clear()
+            TextBox7.Clear()
+            TextBox8.Clear()
+            Return
+        End If
+
+        Try
+            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+                con.Open()
+
+                Dim cmd As New SqlCommand("SELECT id, productname, series, price FROM gshock.dbo.products WHERE id = @id", con)
+                cmd.Parameters.AddWithValue("@id", productId)
+
+                Using reader As SqlDataReader = cmd.ExecuteReader()
+                    If reader.Read() Then
+                        TextBox5.Text = reader("id").ToString()
+                        TextBox6.Text = reader("productname").ToString()
+                        TextBox7.Text = reader("series").ToString()
+                        TextBox8.Text = Convert.ToDecimal(reader("price")).ToString("F2")
+                    Else
+                        TextBox5.Clear()
+                        TextBox6.Clear()
+                        TextBox7.Clear()
+                        TextBox8.Clear()
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error searching product: " & ex.Message)
+        End Try
     End Sub
 End Class
