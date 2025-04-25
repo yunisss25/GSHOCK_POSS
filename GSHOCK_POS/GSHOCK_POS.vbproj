@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84405897-DD4F-4846-A5DD-33B3D86494CC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>GSHOCK_POS.My.MyApplication</StartupObject>
+    <RootNamespace>GSHOCK_POS</RootNamespace>
+    <AssemblyName>GSHOCK_POS</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>GSHOCK_POS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>GSHOCK_POS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExCSS, Version=4.2.3.0, Culture=neutral, PublicKeyToken=bdbe16be9b936b9a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExCSS.4.2.3\lib\netstandard2.0\ExCSS.dll</HintPath>
+    </Reference>
+    <Reference Include="Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Svg.3.4.7\lib\net472\Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AUDITLOGS.Designer.vb">
+      <DependentUpon>AUDITLOGS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AUDITLOGS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CUSTOMER_INFO.Designer.vb">
+      <DependentUpon>CUSTOMER_INFO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CUSTOMER_INFO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DAILY_REPORT.Designer.vb">
+      <DependentUpon>DAILY_REPORT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DAILY_REPORT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DR_SUMMARY.Designer.vb">
+      <DependentUpon>DR_SUMMARY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DR_SUMMARY.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gshockDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gshockDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gshockDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gshockDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gshockDataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gshockDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="INVENTORYMANAGEMENT.Designer.vb">
+      <DependentUpon>INVENTORYMANAGEMENT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="INVENTORYMANAGEMENT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PAYMENT.Designer.vb">
+      <DependentUpon>PAYMENT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PAYMENT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRODUCT_LOOK-UP.Designer.vb">
+      <DependentUpon>PRODUCT_LOOK-UP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCT_LOOK-UP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERMNGT.Designer.vb">
+      <DependentUpon>USERMNGT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="USERMNGT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SUMMARY.Designer.vb">
+      <DependentUpon>SUMMARY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SUMMARY.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SYSTEMSETTINGS.Designer.vb">
+      <DependentUpon>SYSTEMSETTINGS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SYSTEMSETTINGS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION_CONTROLS.Designer.vb">
+      <DependentUpon>TRANSACTION_CONTROLS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION_CONTROLS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN.Designer.vb">
+      <DependentUpon>ADMIN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USERMANAGEMENT.Designer.vb">
+      <DependentUpon>USERMANAGEMENT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="USERMANAGEMENT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CUSTOMER_INFO.resx">
+      <DependentUpon>CUSTOMER_INFO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DAILY_REPORT.resx">
+      <DependentUpon>DAILY_REPORT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DR_SUMMARY.resx">
+      <DependentUpon>DR_SUMMARY.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAYMENT.resx">
+      <DependentUpon>PAYMENT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRODUCT_LOOK-UP.resx">
+      <DependentUpon>PRODUCT_LOOK-UP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USERMNGT.resx">
+      <DependentUpon>USERMNGT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUMMARY.resx">
+      <DependentUpon>SUMMARY.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION_CONTROLS.resx">
+      <DependentUpon>TRANSACTION_CONTROLS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN.resx">
+      <DependentUpon>ADMIN.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gshockDataSet.xsc">
+      <DependentUpon>gshockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="gshockDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gshockDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gshockDataSet.xss">
+      <DependentUpon>gshockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="gshockDataSet1.xsc">
+      <DependentUpon>gshockDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="gshockDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gshockDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gshockDataSet1.xss">
+      <DependentUpon>gshockDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="gshockDataSet2.xsc">
+      <DependentUpon>gshockDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="gshockDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gshockDataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gshockDataSet2.xss">
+      <DependentUpon>gshockDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\eye.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
