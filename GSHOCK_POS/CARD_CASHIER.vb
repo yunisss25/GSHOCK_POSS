@@ -107,4 +107,8 @@
         txtCardholderName.Text = txtCardholderName.Text.ToUpper()
         txtCardholderName.SelectionStart = txtCardholderName.Text.Length ' Place the cursor at the end
     End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
 End Class

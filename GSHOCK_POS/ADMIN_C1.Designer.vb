@@ -42,6 +42,7 @@ Partial Class ADMIN_C1
         Me.MP = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,7 +54,7 @@ Partial Class ADMIN_C1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Black", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(232, 84)
+        Me.Label1.Location = New System.Drawing.Point(303, 90)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(400, 68)
         Me.Label1.TabIndex = 7
@@ -142,8 +143,8 @@ Partial Class ADMIN_C1
         Me.MP.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.MP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.MP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.MP.Location = New System.Drawing.Point(857, 12)
+        Me.MP.ForeColor = System.Drawing.Color.Red
+        Me.MP.Location = New System.Drawing.Point(1148, 12)
         Me.MP.Name = "MP"
         Me.MP.Size = New System.Drawing.Size(126, 24)
         Me.MP.TabIndex = 0
@@ -166,19 +167,33 @@ Partial Class ADMIN_C1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel1.Controls.Add(Me.btnClose)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.MP)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(995, 47)
+        Me.Panel1.Size = New System.Drawing.Size(1370, 47)
         Me.Panel1.TabIndex = 1
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.Red
+        Me.btnClose.Location = New System.Drawing.Point(1280, 12)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(60, 24)
+        Me.btnClose.TabIndex = 2
+        Me.btnClose.Text = "X"
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'ADMIN_C1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(995, 591)
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -188,7 +203,7 @@ Partial Class ADMIN_C1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "ADMIN_C1"
-        Me.Text = "ADMIN_C1"
+        Me.Text = "X"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -209,4 +224,5 @@ Partial Class ADMIN_C1
     Friend WithEvents MP As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnClose As Button
 End Class

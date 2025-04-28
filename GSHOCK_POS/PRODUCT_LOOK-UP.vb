@@ -245,4 +245,12 @@ Public Class PRODUCT_LOOK_UP
             TextBox1.Text = row.Cells("quantity").Value.ToString() ' Quantity
         End If
     End Sub
+
+    Private Sub MP_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
 End Class

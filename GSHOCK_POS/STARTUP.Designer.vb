@@ -29,6 +29,7 @@ Partial Class STARTUP
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -36,6 +37,7 @@ Partial Class STARTUP
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox1)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
@@ -60,7 +62,7 @@ Partial Class STARTUP
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.Button1.Font = New System.Drawing.Font("Arial Black", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(201, 150)
+        Me.Button1.Location = New System.Drawing.Point(167, 292)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(274, 138)
         Me.Button1.TabIndex = 28
@@ -71,7 +73,7 @@ Partial Class STARTUP
         '
         Me.Button2.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.Button2.Font = New System.Drawing.Font("Arial Black", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(492, 150)
+        Me.Button2.Location = New System.Drawing.Point(513, 292)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(274, 138)
         Me.Button2.TabIndex = 29
@@ -82,7 +84,7 @@ Partial Class STARTUP
         '
         Me.Button3.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.Button3.Font = New System.Drawing.Font("Arial Black", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(345, 303)
+        Me.Button3.Location = New System.Drawing.Point(868, 292)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(274, 138)
         Me.Button3.TabIndex = 30
@@ -93,13 +95,26 @@ Partial Class STARTUP
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Arial Black", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Arial Black", 65.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label1.Location = New System.Drawing.Point(152, 65)
+        Me.Label1.Location = New System.Drawing.Point(55, 70)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(684, 68)
+        Me.Label1.Size = New System.Drawing.Size(1236, 123)
         Me.Label1.TabIndex = 31
         Me.Label1.Text = "SELECT YOUR POSITION"
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.Red
+        Me.btnClose.Location = New System.Drawing.Point(1278, 12)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(60, 24)
+        Me.btnClose.TabIndex = 5
+        Me.btnClose.Text = "X"
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'STARTUP
         '
@@ -129,4 +144,5 @@ Partial Class STARTUP
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnClose As Button
 End Class

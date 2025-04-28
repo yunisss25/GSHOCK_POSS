@@ -22,4 +22,8 @@
     Private Sub MONTHLY_Click(sender As Object, e As EventArgs) Handles MONTHLY.Click
         ADMIN_MONTHLY.Show()
     End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
 End Class

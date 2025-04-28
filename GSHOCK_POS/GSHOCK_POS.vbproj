@@ -154,12 +154,6 @@
     <Compile Include="ADMIN_WEEKLY.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AUDITLOGS.Designer.vb">
-      <DependentUpon>AUDITLOGS.vb</DependentUpon>
-    </Compile>
-    <Compile Include="AUDITLOGS.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="CARD_CASHIER.Designer.vb">
       <DependentUpon>CARD_CASHIER.vb</DependentUpon>
     </Compile>
@@ -178,28 +172,10 @@
     <Compile Include="CASH_QR.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CUSTOMER_INFO.Designer.vb">
-      <DependentUpon>CUSTOMER_INFO.vb</DependentUpon>
-    </Compile>
-    <Compile Include="CUSTOMER_INFO.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ADMIN_DAILY.Designer.vb">
       <DependentUpon>ADMIN_DAILY.vb</DependentUpon>
     </Compile>
     <Compile Include="ADMIN_DAILY.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DAILY_REPORT.Designer.vb">
-      <DependentUpon>DAILY_REPORT.vb</DependentUpon>
-    </Compile>
-    <Compile Include="DAILY_REPORT.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DR_SUMMARY.Designer.vb">
-      <DependentUpon>DR_SUMMARY.vb</DependentUpon>
-    </Compile>
-    <Compile Include="DR_SUMMARY.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.vb">
@@ -239,12 +215,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>gshockDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="INVENTORYMANAGEMENT.Designer.vb">
-      <DependentUpon>INVENTORYMANAGEMENT.vb</DependentUpon>
-    </Compile>
-    <Compile Include="INVENTORYMANAGEMENT.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="MANAGER_LOGIN.Designer.vb">
       <DependentUpon>MANAGER_LOGIN.vb</DependentUpon>
@@ -293,40 +263,10 @@
     <Compile Include="STARTUP.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="USERMNGT.Designer.vb">
-      <DependentUpon>USERMNGT.vb</DependentUpon>
-    </Compile>
-    <Compile Include="USERMNGT.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SUMMARY.Designer.vb">
-      <DependentUpon>SUMMARY.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SUMMARY.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SYSTEMSETTINGS.Designer.vb">
-      <DependentUpon>SYSTEMSETTINGS.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SYSTEMSETTINGS.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TRANSACTION_CONTROLS.Designer.vb">
-      <DependentUpon>TRANSACTION_CONTROLS.vb</DependentUpon>
-    </Compile>
-    <Compile Include="TRANSACTION_CONTROLS.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ADMIN.Designer.vb">
       <DependentUpon>ADMIN.vb</DependentUpon>
     </Compile>
     <Compile Include="ADMIN.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="USERMANAGEMENT.Designer.vb">
-      <DependentUpon>USERMANAGEMENT.vb</DependentUpon>
-    </Compile>
-    <Compile Include="USERMANAGEMENT.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -370,15 +310,6 @@
     <EmbeddedResource Include="CASH_QR.resx">
       <DependentUpon>CASH_QR.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CUSTOMER_INFO.resx">
-      <DependentUpon>CUSTOMER_INFO.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DAILY_REPORT.resx">
-      <DependentUpon>DAILY_REPORT.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DR_SUMMARY.resx">
-      <DependentUpon>DR_SUMMARY.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -405,15 +336,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="STARTUP.resx">
       <DependentUpon>STARTUP.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="USERMNGT.resx">
-      <DependentUpon>USERMNGT.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SUMMARY.resx">
-      <DependentUpon>SUMMARY.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TRANSACTION_CONTROLS.resx">
-      <DependentUpon>TRANSACTION_CONTROLS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ADMIN.resx">
       <DependentUpon>ADMIN.vb</DependentUpon>

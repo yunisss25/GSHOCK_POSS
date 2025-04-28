@@ -36,6 +36,7 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.C3 = New System.Windows.Forms.Button()
         Me.C2 = New System.Windows.Forms.Button()
         Me.C1 = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -45,12 +46,13 @@ Partial Class MANAGER_SALES_OVERVIEW
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox1)
         Me.Panel3.Controls.Add(Me.MP)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(995, 47)
+        Me.Panel3.Size = New System.Drawing.Size(1370, 47)
         Me.Panel3.TabIndex = 25
         '
         'PictureBox1
@@ -71,8 +73,8 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.MP.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.MP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.MP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.MP.Location = New System.Drawing.Point(857, 12)
+        Me.MP.ForeColor = System.Drawing.Color.Red
+        Me.MP.Location = New System.Drawing.Point(1128, 12)
         Me.MP.Name = "MP"
         Me.MP.Size = New System.Drawing.Size(126, 24)
         Me.MP.TabIndex = 0
@@ -82,8 +84,10 @@ Partial Class MANAGER_SALES_OVERVIEW
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Arial", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(363, 264)
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label2.Location = New System.Drawing.Point(539, 349)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(302, 56)
         Me.Label2.TabIndex = 24
@@ -92,10 +96,12 @@ Partial Class MANAGER_SALES_OVERVIEW
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(279, 195)
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Arial Black", 65.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label1.Location = New System.Drawing.Point(225, 204)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(452, 56)
+        Me.Label1.Size = New System.Drawing.Size(914, 123)
         Me.Label1.TabIndex = 23
         Me.Label1.Text = "SALES OVERVIEW"
         '
@@ -108,7 +114,7 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 47)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(180, 544)
+        Me.Panel1.Size = New System.Drawing.Size(180, 702)
         Me.Panel1.TabIndex = 28
         '
         'MONTHLY
@@ -148,9 +154,9 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.Panel2.Controls.Add(Me.C2)
         Me.Panel2.Controls.Add(Me.C1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(815, 47)
+        Me.Panel2.Location = New System.Drawing.Point(1190, 47)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(180, 544)
+        Me.Panel2.Size = New System.Drawing.Size(180, 702)
         Me.Panel2.TabIndex = 29
         '
         'C3
@@ -183,16 +189,32 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.C1.Text = "CASHIER 1"
         Me.C1.UseVisualStyleBackColor = True
         '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.Red
+        Me.btnClose.Location = New System.Drawing.Point(1274, 12)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(60, 24)
+        Me.btnClose.TabIndex = 4
+        Me.btnClose.Text = "X"
+        Me.btnClose.UseVisualStyleBackColor = False
+        '
         'MANAGER_SALES_OVERVIEW
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(995, 591)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "MANAGER_SALES_OVERVIEW"
         Me.Text = "MANAGER_SALES_OVERVIEW"
         Me.Panel3.ResumeLayout(False)
@@ -217,4 +239,5 @@ Partial Class MANAGER_SALES_OVERVIEW
     Friend WithEvents C3 As Button
     Friend WithEvents C2 As Button
     Friend WithEvents C1 As Button
+    Friend WithEvents btnClose As Button
 End Class

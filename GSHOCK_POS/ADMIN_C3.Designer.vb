@@ -42,6 +42,7 @@ Partial Class ADMIN_C3
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MP = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -153,12 +154,13 @@ Partial Class ADMIN_C3
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel1.Controls.Add(Me.btnClose)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.MP)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(995, 47)
+        Me.Panel1.Size = New System.Drawing.Size(1370, 47)
         Me.Panel1.TabIndex = 14
         '
         'MP
@@ -166,19 +168,32 @@ Partial Class ADMIN_C3
         Me.MP.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.MP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.MP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.MP.Location = New System.Drawing.Point(857, 12)
+        Me.MP.ForeColor = System.Drawing.Color.Red
+        Me.MP.Location = New System.Drawing.Point(1130, 12)
         Me.MP.Name = "MP"
         Me.MP.Size = New System.Drawing.Size(126, 24)
         Me.MP.TabIndex = 0
         Me.MP.Text = "MAIN PAGE"
         Me.MP.UseVisualStyleBackColor = False
         '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.Red
+        Me.btnClose.Location = New System.Drawing.Point(1274, 12)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(60, 24)
+        Me.btnClose.TabIndex = 22
+        Me.btnClose.Text = "X"
+        Me.btnClose.UseVisualStyleBackColor = False
+        '
         'ADMIN_C3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(995, 591)
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -209,4 +224,5 @@ Partial Class ADMIN_C3
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents MP As Button
+    Friend WithEvents btnClose As Button
 End Class

@@ -64,4 +64,8 @@ Public Class ADMIN_DAILY
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         ADMIN_C3.Show()
     End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
 End Class

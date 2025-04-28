@@ -22,7 +22,6 @@ Partial Class MANAGER_LOGIN
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Label1 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MANAGER_LOGIN))
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -32,32 +31,21 @@ Partial Class MANAGER_LOGIN
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Label1 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
-        '
-        Label1.AutoSize = True
-        Label1.BackColor = System.Drawing.Color.Transparent
-        Label1.Font = New System.Drawing.Font("Arial Black", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Label1.Location = New System.Drawing.Point(221, 84)
-        Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Label1.Name = "Label1"
-        Label1.Size = New System.Drawing.Size(584, 68)
-        Label1.TabIndex = 31
-        Label1.Text = "LOG-IN TO G-SHOCK!"
-        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox1)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(995, 47)
+        Me.Panel3.Size = New System.Drawing.Size(1386, 47)
         Me.Panel3.TabIndex = 34
         '
         'PictureBox1
@@ -77,10 +65,10 @@ Partial Class MANAGER_LOGIN
         '
         Me.TextBox2.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.TextBox2.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(329, 376)
+        Me.TextBox2.Location = New System.Drawing.Point(241, 427)
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(371, 26)
+        Me.TextBox2.Size = New System.Drawing.Size(781, 26)
         Me.TextBox2.TabIndex = 33
         '
         'Label3
@@ -89,7 +77,7 @@ Partial Class MANAGER_LOGIN
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Arial Narrow", 16.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(324, 337)
+        Me.Label3.Location = New System.Drawing.Point(240, 385)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(96, 26)
@@ -100,26 +88,26 @@ Partial Class MANAGER_LOGIN
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Arial Narrow", 26.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label4.Location = New System.Drawing.Point(476, 163)
+        Me.Label4.Location = New System.Drawing.Point(537, 178)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(96, 25)
+        Me.Label4.Size = New System.Drawing.Size(163, 42)
         Me.Label4.TabIndex = 30
         Me.Label4.Text = "MANAGER"
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Button1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Arial Black", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button1.Location = New System.Drawing.Point(622, 427)
+        Me.Button1.Location = New System.Drawing.Point(562, 525)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(78, 28)
+        Me.Button1.Size = New System.Drawing.Size(105, 42)
         Me.Button1.TabIndex = 29
-        Me.Button1.Text = "Login"
+        Me.Button1.Text = "LOGIN"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Label2
@@ -128,7 +116,7 @@ Partial Class MANAGER_LOGIN
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 16.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(324, 228)
+        Me.Label2.Location = New System.Drawing.Point(236, 260)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 26)
@@ -139,11 +127,36 @@ Partial Class MANAGER_LOGIN
         '
         Me.TextBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TextBox1.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(329, 273)
+        Me.TextBox1.Location = New System.Drawing.Point(241, 309)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(371, 26)
+        Me.TextBox1.Size = New System.Drawing.Size(781, 26)
         Me.TextBox1.TabIndex = 27
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Arial Black", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label5.Location = New System.Drawing.Point(257, 73)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(732, 90)
+        Me.Label5.TabIndex = 7
+        Me.Label5.Text = "LOGIN TO G-SHOCK"
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.Red
+        Me.btnClose.Location = New System.Drawing.Point(1304, 12)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(60, 24)
+        Me.btnClose.TabIndex = 4
+        Me.btnClose.Text = "X"
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'MANAGER_LOGIN
         '
@@ -151,11 +164,11 @@ Partial Class MANAGER_LOGIN
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(995, 591)
+        Me.ClientSize = New System.Drawing.Size(1386, 788)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Label1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
@@ -178,4 +191,6 @@ Partial Class MANAGER_LOGIN
     Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents btnClose As Button
 End Class

@@ -1,3 +1,0 @@
-﻿Public Class TRANSACTION_CONTROLS
-
-End Class

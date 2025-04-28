@@ -87,39 +87,35 @@ Public Class Admin_WEEKLY
         End Using
     End Sub
 
-    ' Button click event handlers from your UI
-    Private Sub btnDaily_Click(sender As Object, e As EventArgs) Handles btnDaily.Click
-        Me.Hide()
+    Private Sub DAILY_Click(sender As Object, e As EventArgs) Handles DAILY.Click
         ADMIN_DAILY.Show()
     End Sub
 
-    Private Sub btnWeekly_Click(sender As Object, e As EventArgs) Handles btnWeekly.Click
-        ' Refresh current form
-        LoadWeeklySalesChart()
+    Private Sub WEEKLY_Click(sender As Object, e As EventArgs) Handles WEEKLY.Click
+        Me.Show()
     End Sub
 
-    Private Sub btnMonthly_Click(sender As Object, e As EventArgs) Handles btnMonthly.Click
-        Me.Hide()
+    Private Sub MONTHLY_Click(sender As Object, e As EventArgs) Handles MONTHLY.Click
         ADMIN_MONTHLY.Show()
     End Sub
 
-    Private Sub btnMainPage_Click(sender As Object, e As EventArgs) Handles btnMainPage.Click
-        Me.Hide()
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         ADMIN_C1.Show()
     End Sub
 
-    Private Sub btnCashier1_Click(sender As Object, e As EventArgs) Handles btnCashier1.Click
-        Me.Hide()
-        CASHIER.Show()
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ADMIN_C2.Show()
     End Sub
 
-    Private Sub btnCashier2_Click(sender As Object, e As EventArgs) Handles btnCashier2.Click
-        Me.Hide()
-        CASHIER2.Show()
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        ADMIN_C3.Show()
     End Sub
 
-    Private Sub btnCashier3_Click(sender As Object, e As EventArgs) Handles btnCashier3.Click
-        Me.Hide()
-        CASHIER3.Show()
+    Private Sub MP_Click(sender As Object, e As EventArgs) Handles MP.Click
+        ADMIN_SALES_OVERVIEW.Show()
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
     End Sub
 End Class
