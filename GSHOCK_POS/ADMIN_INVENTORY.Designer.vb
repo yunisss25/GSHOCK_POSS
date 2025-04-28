@@ -88,7 +88,7 @@ Partial Class ADMIN_INVENTORY
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(175, 254)
+        Me.DataGridView1.Location = New System.Drawing.Point(62, 246)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(954, 269)
         Me.DataGridView1.TabIndex = 7
