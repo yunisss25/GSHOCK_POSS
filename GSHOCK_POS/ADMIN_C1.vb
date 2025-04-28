@@ -3,7 +3,7 @@
         ADMIN_SALES_OVERVIEW.Show()
     End Sub
 
-    Private Sub Chart2_Click(sender As Object, e As EventArgs) Handles Chart2.Click
+    Private Sub Chart2_Click(sender As Object, e As EventArgs)
 
     End Sub
 
