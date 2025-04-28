@@ -51,13 +51,14 @@ Partial Class ADMIN_C1
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Font = New System.Drawing.Font("Arial Black", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(232, 84)
+        Me.Label1.Location = New System.Drawing.Point(0, 47)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(400, 68)
+        Me.Label1.Size = New System.Drawing.Size(995, 68)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "CASHIER ONE"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Chart1
         '
@@ -65,7 +66,7 @@ Partial Class ADMIN_C1
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(42, 241)
+        Me.Chart1.Location = New System.Drawing.Point(26, 177)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
@@ -81,7 +82,7 @@ Partial Class ADMIN_C1
         Me.Chart2.ChartAreas.Add(ChartArea2)
         Legend2.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend2)
-        Me.Chart2.Location = New System.Drawing.Point(362, 241)
+        Me.Chart2.Location = New System.Drawing.Point(346, 177)
         Me.Chart2.Name = "Chart2"
         Series2.ChartArea = "ChartArea1"
         Series2.Legend = "Legend1"
@@ -97,7 +98,7 @@ Partial Class ADMIN_C1
         Me.Chart3.ChartAreas.Add(ChartArea3)
         Legend3.Name = "Legend1"
         Me.Chart3.Legends.Add(Legend3)
-        Me.Chart3.Location = New System.Drawing.Point(683, 241)
+        Me.Chart3.Location = New System.Drawing.Point(667, 177)
         Me.Chart3.Name = "Chart3"
         Series3.ChartArea = "ChartArea1"
         Series3.Legend = "Legend1"
@@ -111,7 +112,7 @@ Partial Class ADMIN_C1
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Black", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(146, 208)
+        Me.Label2.Location = New System.Drawing.Point(130, 144)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(80, 30)
         Me.Label2.TabIndex = 11
@@ -121,7 +122,7 @@ Partial Class ADMIN_C1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Black", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(460, 208)
+        Me.Label3.Location = New System.Drawing.Point(444, 144)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(110, 30)
         Me.Label3.TabIndex = 12
@@ -131,7 +132,7 @@ Partial Class ADMIN_C1
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial Black", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(780, 208)
+        Me.Label4.Location = New System.Drawing.Point(764, 144)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(130, 30)
         Me.Label4.TabIndex = 13
@@ -187,7 +188,9 @@ Partial Class ADMIN_C1
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ADMIN_C1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ADMIN_C1"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
