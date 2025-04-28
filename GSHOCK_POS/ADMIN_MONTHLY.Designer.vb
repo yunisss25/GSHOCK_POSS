@@ -67,11 +67,11 @@ Partial Class ADMIN_MONTHLY
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(373, 107)
+        Me.Label2.Location = New System.Drawing.Point(360, 107)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(258, 56)
+        Me.Label2.Size = New System.Drawing.Size(292, 56)
         Me.Label2.TabIndex = 10
-        Me.Label2.Text = "(WEEKLY)"
+        Me.Label2.Text = "(MONTHLY)"
         '
         'Label1
         '
