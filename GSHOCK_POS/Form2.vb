@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
 
-Public Class Form2
+Public Class LOGIN
     ' Add this at the class level to track password visibility
     Private passwordVisible As Boolean = False
     Private WithEvents eyeIcon As PictureBox
@@ -122,7 +122,7 @@ Public Class Form2
         End If
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
         ' Optional: add image behavior here
     End Sub
 

@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.GSHOCK_POS.PRODUCT_LOOK_UP
+            Me.MainForm = Global.GSHOCK_POS.STARTUP
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _

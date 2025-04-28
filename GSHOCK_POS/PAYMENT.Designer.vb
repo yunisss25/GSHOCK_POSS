@@ -26,7 +26,6 @@ Partial Class PAYMENT
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -34,9 +33,10 @@ Partial Class PAYMENT
         '
         Me.Button1.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.Button1.Font = New System.Drawing.Font("Arial", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(169, 146)
+        Me.Button1.Location = New System.Drawing.Point(127, 119)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(429, 42)
+        Me.Button1.Size = New System.Drawing.Size(322, 34)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "CASH"
         Me.Button1.UseVisualStyleBackColor = False
@@ -45,9 +45,10 @@ Partial Class PAYMENT
         '
         Me.Button2.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.Button2.Font = New System.Drawing.Font("Arial", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(169, 203)
+        Me.Button2.Location = New System.Drawing.Point(127, 165)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(429, 42)
+        Me.Button2.Size = New System.Drawing.Size(322, 34)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "CREDIT/DEBIT CARD"
         Me.Button2.UseVisualStyleBackColor = False
@@ -56,23 +57,13 @@ Partial Class PAYMENT
         '
         Me.Button3.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.Button3.Font = New System.Drawing.Font("Arial", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(169, 264)
+        Me.Button3.Location = New System.Drawing.Point(127, 214)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(2)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(429, 42)
+        Me.Button3.Size = New System.Drawing.Size(322, 34)
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "QR CODE / E - WALLET"
         Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Button4.Font = New System.Drawing.Font("Arial", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(169, 326)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(429, 42)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "GIFT CARD"
-        Me.Button4.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -80,25 +71,26 @@ Partial Class PAYMENT
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Arial", 42.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label1.Location = New System.Drawing.Point(43, 27)
+        Me.Label1.Location = New System.Drawing.Point(32, 22)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(702, 81)
+        Me.Label1.Size = New System.Drawing.Size(561, 65)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "PAYMENT OPTIONS"
         '
         'PAYMENT
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(600, 366)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "PAYMENT"
         Me.Text = "PAYMENT"
         Me.ResumeLayout(False)
@@ -109,6 +101,5 @@ Partial Class PAYMENT
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
     Friend WithEvents Label1 As Label
 End Class

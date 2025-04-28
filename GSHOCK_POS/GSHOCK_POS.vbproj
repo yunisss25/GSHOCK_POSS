@@ -73,11 +73,18 @@
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="zxing, Version=0.16.10.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.10\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.10.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.10\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -93,16 +100,94 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADMIN_C1.Designer.vb">
+      <DependentUpon>ADMIN_C1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_C1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN_C2.Designer.vb">
+      <DependentUpon>ADMIN_C2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_C2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN_C3.Designer.vb">
+      <DependentUpon>ADMIN_C3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_C3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN_INVENTORY.Designer.vb">
+      <DependentUpon>ADMIN_INVENTORY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_INVENTORY.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN_LOGIN.Designer.vb">
+      <DependentUpon>ADMIN_LOGIN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_LOGIN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN_MONTHLY.Designer.vb">
+      <DependentUpon>ADMIN_MONTHLY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_MONTHLY.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN_SALES_OVERVIEW.Designer.vb">
+      <DependentUpon>ADMIN_SALES_OVERVIEW.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_SALES_OVERVIEW.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN_USERS.Designer.vb">
+      <DependentUpon>ADMIN_USERS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_USERS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN_WEEKLY.Designer.vb">
+      <DependentUpon>ADMIN_WEEKLY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_WEEKLY.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AUDITLOGS.Designer.vb">
       <DependentUpon>AUDITLOGS.vb</DependentUpon>
     </Compile>
     <Compile Include="AUDITLOGS.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CARD_CASHIER.Designer.vb">
+      <DependentUpon>CARD_CASHIER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CARD_CASHIER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CASH_CASHIER.Designer.vb">
+      <DependentUpon>CASH_CASHIER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CASH_CASHIER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CASH_QR.Designer.vb">
+      <DependentUpon>CASH_QR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CASH_QR.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CUSTOMER_INFO.Designer.vb">
       <DependentUpon>CUSTOMER_INFO.vb</DependentUpon>
     </Compile>
     <Compile Include="CUSTOMER_INFO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMIN_DAILY.Designer.vb">
+      <DependentUpon>ADMIN_DAILY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN_DAILY.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DAILY_REPORT.Designer.vb">
@@ -145,10 +230,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>gshockDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="gshockDataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gshockDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gshockDataSet4.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gshockDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="INVENTORYMANAGEMENT.Designer.vb">
       <DependentUpon>INVENTORYMANAGEMENT.vb</DependentUpon>
     </Compile>
     <Compile Include="INVENTORYMANAGEMENT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MANAGER_LOGIN.Designer.vb">
+      <DependentUpon>MANAGER_LOGIN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MANAGER_LOGIN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MANAGER_SALES_OVERVIEW.Designer.vb">
+      <DependentUpon>MANAGER_SALES_OVERVIEW.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MANAGER_SALES_OVERVIEW.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -178,6 +285,12 @@
       <DependentUpon>PRODUCT_LOOK-UP.vb</DependentUpon>
     </Compile>
     <Compile Include="PRODUCT_LOOK-UP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STARTUP.Designer.vb">
+      <DependentUpon>STARTUP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="STARTUP.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="USERMNGT.Designer.vb">
@@ -218,6 +331,45 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ADMIN_C1.resx">
+      <DependentUpon>ADMIN_C1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN_C2.resx">
+      <DependentUpon>ADMIN_C2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN_C3.resx">
+      <DependentUpon>ADMIN_C3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN_DAILY.resx">
+      <DependentUpon>ADMIN_DAILY.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN_INVENTORY.resx">
+      <DependentUpon>ADMIN_INVENTORY.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN_LOGIN.resx">
+      <DependentUpon>ADMIN_LOGIN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN_MONTHLY.resx">
+      <DependentUpon>ADMIN_MONTHLY.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN_SALES_OVERVIEW.resx">
+      <DependentUpon>ADMIN_SALES_OVERVIEW.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN_USERS.resx">
+      <DependentUpon>ADMIN_USERS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN_WEEKLY.resx">
+      <DependentUpon>ADMIN_WEEKLY.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CARD_CASHIER.resx">
+      <DependentUpon>CARD_CASHIER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CASH_CASHIER.resx">
+      <DependentUpon>CASH_CASHIER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CASH_QR.resx">
+      <DependentUpon>CASH_QR.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CUSTOMER_INFO.resx">
       <DependentUpon>CUSTOMER_INFO.vb</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +385,12 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MANAGER_LOGIN.resx">
+      <DependentUpon>MANAGER_LOGIN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MANAGER_SALES_OVERVIEW.resx">
+      <DependentUpon>MANAGER_SALES_OVERVIEW.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -244,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PRODUCT_LOOK-UP.resx">
       <DependentUpon>PRODUCT_LOOK-UP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STARTUP.resx">
+      <DependentUpon>STARTUP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="USERMNGT.resx">
       <DependentUpon>USERMNGT.vb</DependentUpon>
@@ -291,6 +452,28 @@
     </None>
     <None Include="gshockDataSet2.xss">
       <DependentUpon>gshockDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="gshockDataSet3.xsc">
+      <DependentUpon>gshockDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="gshockDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gshockDataSet3.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gshockDataSet3.xss">
+      <DependentUpon>gshockDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="gshockDataSet4.xsc">
+      <DependentUpon>gshockDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="gshockDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gshockDataSet4.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gshockDataSet4.xss">
+      <DependentUpon>gshockDataSet4.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
