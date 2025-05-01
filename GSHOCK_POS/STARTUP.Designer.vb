@@ -145,4 +145,13 @@ Partial Class STARTUP
     Friend WithEvents Button3 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents btnClose As Button
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        ADMIN_LOGIN.ShowDialog()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
 End Class

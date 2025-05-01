@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -69,6 +69,31 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;Tr"& _ 
+            "ustServerCertificate=True")>  _
+        Public ReadOnly Property gshockConnectionString1() As String
+            Get
+                Return CType(Me("gshockConnectionString1"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.2.113;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=Tr"& _ 
+            "ue;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=F"& _ 
+            "alse")>  _
+        Public Property ConnectionString() As String
+            Get
+                Return CType(Me("ConnectionString"),String)
+            End Get
+            Set
+                Me("ConnectionString") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.43.191,1433;Initial Catalog=gshock;User ID=sa;Password=12345;"& _ 
             "TrustServerCertificate=True")>  _
         Public ReadOnly Property gshockConnectionString() As String
@@ -79,12 +104,11 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;Tr"& _ 
-            "ustServerCertificate=True")>  _
-        Public ReadOnly Property gshockConnectionString1() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-4M05HEM\SQLEXPRESS;Database=gshock;Integrated Security=True;Encryp"& _ 
+            "t=True;TrustServerCertificate=True;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10))>  _
+        Public ReadOnly Property ConStr() As String
             Get
-                Return CType(Me("gshockConnectionString1"),String)
+                Return CType(Me("ConStr"),String)
             End Get
         End Property
     End Class

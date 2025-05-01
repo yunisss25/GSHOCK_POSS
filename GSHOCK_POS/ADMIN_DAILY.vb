@@ -1,81 +1,109 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Microsoft.Data.SqlClient
+Imports Dapper
 Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class ADMIN_DAILY
 
-    ' SQL Connection String
-    Dim conn As New SqlConnection("Data Source=192.168.2.113;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-
-    Private Sub ADMIN_DAILY_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadTotalPrice()
-    End Sub
-
-    ' ======== CHART 1: Total Price (Overall) ========
-    Private Sub LoadTotalPrice()
-        Dim totalPrice As Decimal = 0
-
-        Dim cmd As New SqlCommand("SELECT SUM(price) FROM products", conn)
-
-        Try
-            conn.Open()
-            Dim result = cmd.ExecuteScalar()
-
-            If result IsNot DBNull.Value AndAlso result IsNot Nothing Then
-                totalPrice = Convert.ToDecimal(result)
-            End If
-
-        Catch ex As Exception
-            MessageBox.Show("Error retrieving total price: " & ex.Message)
-        Finally
-            conn.Close()
-        End Try
-
-        ' Display in Chart1
-        Chart1.Series.Clear()
-        Chart1.Series.Add("Series1")
-        Chart1.Series("Series1").ChartType = SeriesChartType.Column
-        Chart1.Series("Series1").Points.AddXY("Total", totalPrice)
-    End Sub
-
-    ' No need to show this form again
-    Private Sub DAILY_Click(sender As Object, e As EventArgs) Handles DAILY.Click
-        ' Do nothing or optionally refresh chart if needed
-        LoadTotalPrice()
-    End Sub
-
     Private Sub WEEKLY_Click(sender As Object, e As EventArgs) Handles WEEKLY.Click
-        ADMIN_WEEKLY.Show()
+        ADMIN_WEEKLY.ShowDialog()
     End Sub
 
     Private Sub MONTHLY_Click(sender As Object, e As EventArgs) Handles MONTHLY.Click
-        ADMIN_MONTHLY.Show()
+        ADMIN_MONTHLY.ShowDialog()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        ADMIN_C1.Show()
+        ADMIN_C1.ShowDialog()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        ADMIN_C2.Show()
+        ADMIN_C2.ShowDialog()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        ADMIN_C3.Show()
+        ADMIN_C3.ShowDialog()
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
+        Me.Dispose()
     End Sub
 
-    Private Sub Chart1_Click(sender As Object, e As EventArgs) Handles Chart1.Click
-        ' Optional: show tooltip or details on click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        LoadData()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        ' Reserved for future use
+    Public Function GetHourlySalesForDay(targetDate As Date) As List(Of HourlySales)
+        Dim sql As String = "
+        DECLARE @TargetDate DATE = @SaleDate;
+
+        WITH Hours AS (
+            SELECT TOP 24 
+                RIGHT('0' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) - 1 AS VARCHAR), 2) + ':00' AS HourSlot
+            FROM master.dbo.spt_values
+        )
+        SELECT 
+            h.HourSlot,
+            ISNULL(SUM(s.Amount), 0) AS TotalSales
+        FROM Hours h
+        LEFT JOIN SalesReport s 
+            ON FORMAT(s.SaleDate, 'HH:00') = h.HourSlot
+            AND CAST(s.SaleDate AS DATE) = @TargetDate
+        GROUP BY h.HourSlot
+        ORDER BY h.HourSlot;"
+
+        Using con As New SqlConnection(My.Settings.ConStr)
+            Return con.Query(Of HourlySales)(sql, New With {.SaleDate = targetDate}).ToList()
+        End Using
+    End Function
+
+    Private Sub LoadHourlySalesChart(saleDate As Date)
+        ChartSales.ChartAreas(0).AxisX.LabelStyle.Angle = -90
+        ChartSales.ChartAreas(0).AxisX.LabelStyle.Font = New Font("Segoe UI", 8)
+        ChartSales.ChartAreas(0).AxisY.LabelStyle.Font = New Font("Segoe UI", 8)
+
+        ChartSales.ChartAreas(0).InnerPlotPosition = New ElementPosition(10, 10, 80, 80)
+        ChartSales.ChartAreas(0).Position = New ElementPosition(10, 10, 85, 80)
+
+        ChartSales.Series.Clear()
+        ChartSales.Titles.Clear()
+        ChartSales.Titles.Add("Hourly Sales for " & saleDate.ToShortDateString())
+
+        Dim series = ChartSales.Series.Add("Hourly Sales")
+        series.ChartType = DataVisualization.Charting.SeriesChartType.Column
+        series.IsValueShownAsLabel = True
+        series.XValueType = DataVisualization.Charting.ChartValueType.String
+
+        Dim salesData = GetHourlySalesForDay(saleDate)
+
+        For Each sale In salesData
+            series.Points.AddXY(sale.HourSlot, sale.TotalSales)
+        Next
+
+
+        With ChartSales.ChartAreas(0).AxisX
+            .Title = "Hour"
+            .Interval = 1
+            .LabelStyle.Angle = -90
+            .MajorGrid.Enabled = False
+        End With
+
+        With ChartSales.ChartAreas(0).AxisY
+            .Title = "Total Sales"
+            .MajorGrid.LineDashStyle = DataVisualization.Charting.ChartDashStyle.Dot
+        End With
+
+        ChartSales.ChartAreas(0).RecalculateAxesScale()
     End Sub
 
-    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
+    Private Sub LoadData()
+        Try
+            LoadHourlySalesChart(Date.Today)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 
+    Private Sub ADMIN_DAILY_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadData()
     End Sub
 End Class

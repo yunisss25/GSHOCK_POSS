@@ -5,21 +5,28 @@
     <Setting Name="GSHOCKSVG" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Users\Andrew\Downloads\Gspot Resources\gshock.svg</Value>
     </Setting>
+    <Setting Name="gshockConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;TrustServerCertificate=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;TrustServerCertificate=True</Value>
+    </Setting>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=192.168.2.113;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</Value>
+    </Setting>
     <Setting Name="gshockConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;ConnectionString&gt;Data Source=192.168.43.191,1433;Initial Catalog=gshock;User ID=sa;Password=12345;TrustServerCertificate=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=192.168.43.191,1433;Initial Catalog=gshock;User ID=sa;Password=12345;TrustServerCertificate=True</Value>
     </Setting>
-    <Setting Name="gshockConnectionString1" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionString&gt;Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;TrustServerCertificate=True&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=192.168.8.40,1433;Initial Catalog=gshock;User ID=sa;Password=12345;TrustServerCertificate=True</Value>
+    <Setting Name="ConStr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server=DESKTOP-4M05HEM\SQLEXPRESS;Database=gshock;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;
+</Value>
     </Setting>
   </Settings>
 </SettingsFile>

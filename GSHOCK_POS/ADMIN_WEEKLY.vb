@@ -41,7 +41,7 @@ Public Class ADMIN_WEEKLY
     End Sub
 
     Private Sub WEEKLY_Click(sender As Object, e As EventArgs) Handles WEEKLY.Click
-        Me.Show()
+
     End Sub
 
     Private Sub MONTHLY_Click(sender As Object, e As EventArgs) Handles MONTHLY.Click
@@ -68,5 +68,7 @@ Public Class ADMIN_WEEKLY
 
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+    End Sub
 End Class
