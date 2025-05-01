@@ -46,4 +46,35 @@ Public Class ADMIN_MONTHLY
         End Using
     End Function
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        LoadData()
+    End Sub
+
+    Private Sub LoadData()
+        Dim selectedDate As Date = DateTimePicker1.Value.Date
+
+        Dim monthStart As New Date(selectedDate.Year, selectedDate.Month, 1)
+        Dim monthEnd As Date = monthStart.AddMonths(1).AddDays(-1)
+
+        Dim reportData = GetSalesForMonth(My.Settings.ConStr, monthStart, monthEnd)
+
+        With Chart1
+            .Series.Clear()
+            .ChartAreas.Clear()
+            .ChartAreas.Add("MainArea")
+
+            .Series.Add("Monthly Sales")
+            .Series("Monthly Sales").ChartType = DataVisualization.Charting.SeriesChartType.Column
+            .Series("Monthly Sales").Points.Clear()
+
+            For i As Integer = 0 To (monthEnd - monthStart).Days
+                Dim day As Date = monthStart.AddDays(i)
+                Dim sale = reportData.FirstOrDefault(Function(r) r.SaleDate = day)
+                Dim amount = If(sale IsNot Nothing, sale.TotalAmount, 0D)
+                .Series("Monthly Sales").Points.AddXY(day.ToString("dd"), amount)
+            Next
+        End With
+
+        Label3.Text = "Month of " & monthStart.ToString("MMMM yyyy")
+    End Sub
 End Class
