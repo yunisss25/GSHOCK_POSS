@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{84405897-DD4F-4846-A5DD-33B3D86494CC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>GSHOCK_POS.ADMIN_DAILY</StartupObject>
+    <StartupObject>GSHOCK_POS.ADMIN_MONTHLY</StartupObject>
     <RootNamespace>GSHOCK_POS</RootNamespace>
     <AssemblyName>GSHOCK_POS</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -373,11 +373,13 @@
     <Compile Include="PRODUCT_LOOK-UP.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SaleRecord.vb" />
     <Compile Include="Sales.vb" />
     <Compile Include="SalesSumary.vb" />
     <Compile Include="STARTUP.Designer.vb">
       <DependentUpon>STARTUP.vb</DependentUpon>
     </Compile>
+    <Compile Include="WeeklySales.vb" />
     <SplashScreen Include="STARTUP.vb">
       <SubType>Form</SubType>
     </SplashScreen>
