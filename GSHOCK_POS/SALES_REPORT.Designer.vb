@@ -42,6 +42,7 @@ Partial Class SALES_REPORT
         Me.dtpTimeTo = New System.Windows.Forms.DateTimePicker()
         Me.ShowReportButton = New System.Windows.Forms.Button()
         Me.lblTotalSales = New System.Windows.Forms.Label()
+        Me.flpPages = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -122,18 +123,20 @@ Partial Class SALES_REPORT
         '
         'dtpDateFrom
         '
+        Me.dtpDateFrom.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDateFrom.Location = New System.Drawing.Point(54, 3)
         Me.dtpDateFrom.Name = "dtpDateFrom"
-        Me.dtpDateFrom.Size = New System.Drawing.Size(200, 20)
+        Me.dtpDateFrom.Size = New System.Drawing.Size(200, 26)
         Me.dtpDateFrom.TabIndex = 1
         '
         'dtpDateTo
         '
+        Me.dtpDateTo.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDateTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDateTo.Location = New System.Drawing.Point(290, 3)
         Me.dtpDateTo.Name = "dtpDateTo"
-        Me.dtpDateTo.Size = New System.Drawing.Size(200, 20)
+        Me.dtpDateTo.Size = New System.Drawing.Size(200, 26)
         Me.dtpDateTo.TabIndex = 2
         '
         'TableLayoutPanel2
@@ -159,9 +162,9 @@ Partial Class SALES_REPORT
         Me.FlowLayoutPanel1.Controls.Add(Me.dtpDateFrom)
         Me.FlowLayoutPanel1.Controls.Add(Me.Label3)
         Me.FlowLayoutPanel1.Controls.Add(Me.dtpDateTo)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(53, 32)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(53, 29)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(493, 26)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(493, 32)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
         'Label2
@@ -169,7 +172,7 @@ Partial Class SALES_REPORT
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 4)
+        Me.Label2.Location = New System.Drawing.Point(3, 7)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(45, 18)
         Me.Label2.TabIndex = 3
@@ -180,7 +183,7 @@ Partial Class SALES_REPORT
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(260, 4)
+        Me.Label3.Location = New System.Drawing.Point(260, 7)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(24, 18)
         Me.Label3.TabIndex = 4
@@ -191,7 +194,7 @@ Partial Class SALES_REPORT
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(12, 147)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1176, 232)
+        Me.DataGridView1.Size = New System.Drawing.Size(1176, 414)
         Me.DataGridView1.TabIndex = 4
         '
         'FlowLayoutPanel2
@@ -202,9 +205,9 @@ Partial Class SALES_REPORT
         Me.FlowLayoutPanel2.Controls.Add(Me.dtpTimeFrom)
         Me.FlowLayoutPanel2.Controls.Add(Me.Label5)
         Me.FlowLayoutPanel2.Controls.Add(Me.dtpTimeTo)
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(653, 32)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(653, 29)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(493, 26)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(493, 32)
         Me.FlowLayoutPanel2.TabIndex = 1
         '
         'Label4
@@ -212,7 +215,7 @@ Partial Class SALES_REPORT
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 4)
+        Me.Label4.Location = New System.Drawing.Point(3, 7)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(45, 18)
         Me.Label4.TabIndex = 3
@@ -220,11 +223,12 @@ Partial Class SALES_REPORT
         '
         'dtpTimeFrom
         '
+        Me.dtpTimeFrom.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.dtpTimeFrom.Location = New System.Drawing.Point(54, 3)
         Me.dtpTimeFrom.Name = "dtpTimeFrom"
         Me.dtpTimeFrom.ShowUpDown = True
-        Me.dtpTimeFrom.Size = New System.Drawing.Size(200, 20)
+        Me.dtpTimeFrom.Size = New System.Drawing.Size(200, 26)
         Me.dtpTimeFrom.TabIndex = 1
         '
         'Label5
@@ -232,7 +236,7 @@ Partial Class SALES_REPORT
         Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(260, 4)
+        Me.Label5.Location = New System.Drawing.Point(260, 7)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(24, 18)
         Me.Label5.TabIndex = 4
@@ -240,36 +244,52 @@ Partial Class SALES_REPORT
         '
         'dtpTimeTo
         '
+        Me.dtpTimeTo.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.dtpTimeTo.Location = New System.Drawing.Point(290, 3)
         Me.dtpTimeTo.Name = "dtpTimeTo"
         Me.dtpTimeTo.ShowUpDown = True
-        Me.dtpTimeTo.Size = New System.Drawing.Size(200, 20)
+        Me.dtpTimeTo.Size = New System.Drawing.Size(200, 26)
         Me.dtpTimeTo.TabIndex = 2
         '
         'ShowReportButton
         '
-        Me.ShowReportButton.Location = New System.Drawing.Point(1113, 397)
+        Me.ShowReportButton.FlatAppearance.BorderSize = 0
+        Me.ShowReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.ShowReportButton.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowReportButton.Location = New System.Drawing.Point(988, 568)
         Me.ShowReportButton.Name = "ShowReportButton"
-        Me.ShowReportButton.Size = New System.Drawing.Size(75, 23)
+        Me.ShowReportButton.Size = New System.Drawing.Size(200, 50)
         Me.ShowReportButton.TabIndex = 5
-        Me.ShowReportButton.Text = "Show"
+        Me.ShowReportButton.Text = "SHOW"
         Me.ShowReportButton.UseVisualStyleBackColor = True
         '
         'lblTotalSales
         '
         Me.lblTotalSales.AutoSize = True
-        Me.lblTotalSales.Location = New System.Drawing.Point(13, 386)
+        Me.lblTotalSales.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalSales.Location = New System.Drawing.Point(12, 568)
         Me.lblTotalSales.Name = "lblTotalSales"
-        Me.lblTotalSales.Size = New System.Drawing.Size(39, 13)
+        Me.lblTotalSales.Size = New System.Drawing.Size(134, 18)
         Me.lblTotalSales.TabIndex = 6
-        Me.lblTotalSales.Text = "Label6"
+        Me.lblTotalSales.Text = "Total Sales: ₱0.00"
+        '
+        'flpPages
+        '
+        Me.flpPages.AutoScroll = True
+        Me.flpPages.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.flpPages.Location = New System.Drawing.Point(12, 738)
+        Me.flpPages.Name = "flpPages"
+        Me.flpPages.Size = New System.Drawing.Size(1176, 50)
+        Me.flpPages.TabIndex = 7
+        Me.flpPages.WrapContents = False
         '
         'SALES_REPORT
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1200, 800)
+        Me.Controls.Add(Me.flpPages)
         Me.Controls.Add(Me.lblTotalSales)
         Me.Controls.Add(Me.ShowReportButton)
         Me.Controls.Add(Me.DataGridView1)
@@ -312,4 +332,5 @@ Partial Class SALES_REPORT
     Friend WithEvents dtpTimeTo As DateTimePicker
     Friend WithEvents ShowReportButton As Button
     Friend WithEvents lblTotalSales As Label
+    Friend WithEvents flpPages As FlowLayoutPanel
 End Class
