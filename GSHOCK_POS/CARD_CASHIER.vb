@@ -37,7 +37,8 @@
         MessageBox.Show("Card details are valid. Proceeding with payment.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         ' After successful validation, show the PRODUCT_LOOK_UP form
-        PRODUCT_LOOK_UP.Show()
+        CRYSTAL.Show()
+
     End Sub
 
 
@@ -114,6 +115,16 @@
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
+        Application.Exit()
+    End Sub
+
+    Private Sub MP_Click(sender As Object, e As EventArgs) Handles MP.Click
+        PRODUCT_LOOK_UP.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        PAYMENT.Show()
+        Me.Hide()
     End Sub
 End Class

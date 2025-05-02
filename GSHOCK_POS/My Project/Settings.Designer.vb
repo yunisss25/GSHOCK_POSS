@@ -111,6 +111,17 @@ Namespace My
                 Return CType(Me("ConStr"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;TrustSer"& _ 
+            "verCertificate=True")>  _
+        Public ReadOnly Property gshockConnectionString2() As String
+            Get
+                Return CType(Me("gshockConnectionString2"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

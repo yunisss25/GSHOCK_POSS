@@ -26,7 +26,6 @@ Partial Class ADMIN_SALES_OVERVIEW
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MP = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.INVENTORY = New System.Windows.Forms.Button()
@@ -50,7 +49,6 @@ Partial Class ADMIN_SALES_OVERVIEW
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox1)
-        Me.Panel3.Controls.Add(Me.MP)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
@@ -82,19 +80,6 @@ Partial Class ADMIN_SALES_OVERVIEW
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        '
-        'MP
-        '
-        Me.MP.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.MP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.MP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MP.ForeColor = System.Drawing.Color.Red
-        Me.MP.Location = New System.Drawing.Point(1126, 12)
-        Me.MP.Name = "MP"
-        Me.MP.Size = New System.Drawing.Size(126, 24)
-        Me.MP.TabIndex = 0
-        Me.MP.Text = "MAIN PAGE"
-        Me.MP.UseVisualStyleBackColor = False
         '
         'Panel1
         '
@@ -251,7 +236,6 @@ Partial Class ADMIN_SALES_OVERVIEW
     End Sub
     Friend WithEvents Panel3 As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents MP As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button3 As Button
     Friend WithEvents INVENTORY As Button
