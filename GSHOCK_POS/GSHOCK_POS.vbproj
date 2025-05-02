@@ -388,6 +388,12 @@
     <Compile Include="SALES_REPORT_FORM.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SALES_REPORT_VIEWER.Designer.vb">
+      <DependentUpon>SALES_REPORT_VIEWER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SALES_REPORT_VIEWER.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="STARTUP.Designer.vb">
       <DependentUpon>STARTUP.vb</DependentUpon>
     </Compile>
