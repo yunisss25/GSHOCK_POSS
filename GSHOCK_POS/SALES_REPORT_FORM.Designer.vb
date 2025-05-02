@@ -23,8 +23,8 @@ Partial Class SALES_REPORT_FORM
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SALES_REPORT_FORM))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -45,12 +45,20 @@ Partial Class SALES_REPORT_FORM
         Me.ShowReportButton = New System.Windows.Forms.Button()
         Me.lblTotalSales = New System.Windows.Forms.Label()
         Me.flpPages = New System.Windows.Forms.FlowLayoutPanel()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ReportButton = New System.Windows.Forms.Button()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.cmbReportOption = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel3.SuspendLayout()
+        Me.FlowLayoutPanel3.SuspendLayout()
+        Me.FlowLayoutPanel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -189,6 +197,7 @@ Partial Class SALES_REPORT_FORM
         Me.dtpTimeFrom.ShowUpDown = True
         Me.dtpTimeFrom.Size = New System.Drawing.Size(200, 26)
         Me.dtpTimeFrom.TabIndex = 1
+        Me.dtpTimeFrom.Value = New Date(2025, 5, 2, 13, 47, 24, 0)
         '
         'Label5
         '
@@ -251,23 +260,23 @@ Partial Class SALES_REPORT_FORM
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Top
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.GridColor = System.Drawing.Color.LightGray
@@ -281,9 +290,11 @@ Partial Class SALES_REPORT_FORM
         '
         'ShowReportButton
         '
+        Me.ShowReportButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.ShowReportButton.FlatAppearance.BorderSize = 0
         Me.ShowReportButton.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowReportButton.Location = New System.Drawing.Point(988, 738)
+        Me.ShowReportButton.Location = New System.Drawing.Point(0, 129)
+        Me.ShowReportButton.Margin = New System.Windows.Forms.Padding(0)
         Me.ShowReportButton.Name = "ShowReportButton"
         Me.ShowReportButton.Size = New System.Drawing.Size(200, 50)
         Me.ShowReportButton.TabIndex = 5
@@ -292,12 +303,15 @@ Partial Class SALES_REPORT_FORM
         '
         'lblTotalSales
         '
+        Me.lblTotalSales.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblTotalSales.AutoSize = True
         Me.lblTotalSales.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotalSales.Location = New System.Drawing.Point(12, 770)
+        Me.lblTotalSales.Location = New System.Drawing.Point(10, 157)
+        Me.lblTotalSales.Margin = New System.Windows.Forms.Padding(10)
         Me.lblTotalSales.Name = "lblTotalSales"
-        Me.lblTotalSales.Size = New System.Drawing.Size(0, 18)
+        Me.lblTotalSales.Size = New System.Drawing.Size(98, 18)
         Me.lblTotalSales.TabIndex = 6
+        Me.lblTotalSales.Text = "Result here..."
         '
         'flpPages
         '
@@ -310,19 +324,84 @@ Partial Class SALES_REPORT_FORM
         Me.flpPages.TabIndex = 7
         Me.flpPages.WrapContents = False
         '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 3
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 236.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel3.Controls.Add(Me.FlowLayoutPanel4, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.lblTotalSales, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.FlowLayoutPanel3, 2, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 615)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1200, 185)
+        Me.TableLayoutPanel3.TabIndex = 8
+        '
+        'ReportButton
+        '
+        Me.ReportButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.ReportButton.FlatAppearance.BorderSize = 0
+        Me.ReportButton.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ReportButton.Location = New System.Drawing.Point(0, 129)
+        Me.ReportButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.ReportButton.Name = "ReportButton"
+        Me.ReportButton.Size = New System.Drawing.Size(200, 50)
+        Me.ReportButton.TabIndex = 7
+        Me.ReportButton.Text = "PRINT"
+        Me.ReportButton.UseVisualStyleBackColor = True
+        '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.AutoSize = True
+        Me.FlowLayoutPanel3.Controls.Add(Me.ShowReportButton)
+        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(997, 3)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(200, 179)
+        Me.FlowLayoutPanel3.TabIndex = 9
+        '
+        'FlowLayoutPanel4
+        '
+        Me.FlowLayoutPanel4.Controls.Add(Me.ReportButton)
+        Me.FlowLayoutPanel4.Controls.Add(Me.cmbReportOption)
+        Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp
+        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(761, 3)
+        Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(230, 179)
+        Me.FlowLayoutPanel4.TabIndex = 9
+        '
+        'cmbReportOption
+        '
+        Me.cmbReportOption.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.cmbReportOption.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbReportOption.FormattingEnabled = True
+        Me.cmbReportOption.Items.AddRange(New Object() {"Current Page", "All Page", "Page Range"})
+        Me.cmbReportOption.Location = New System.Drawing.Point(0, 93)
+        Me.cmbReportOption.Margin = New System.Windows.Forms.Padding(0, 0, 0, 10)
+        Me.cmbReportOption.Name = "cmbReportOption"
+        Me.cmbReportOption.Size = New System.Drawing.Size(200, 26)
+        Me.cmbReportOption.TabIndex = 0
+        '
         'SALES_REPORT_FORM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1200, 800)
-        Me.Controls.Add(Me.lblTotalSales)
+        Me.Controls.Add(Me.TableLayoutPanel3)
         Me.Controls.Add(Me.flpPages)
-        Me.Controls.Add(Me.ShowReportButton)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "SALES_REPORT_FORM"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SALES_REPORT"
         Me.Panel1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -334,8 +413,11 @@ Partial Class SALES_REPORT_FORM
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel3.PerformLayout()
+        Me.FlowLayoutPanel3.ResumeLayout(False)
+        Me.FlowLayoutPanel4.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -359,4 +441,9 @@ Partial Class SALES_REPORT_FORM
     Friend WithEvents ShowReportButton As Button
     Friend WithEvents lblTotalSales As Label
     Friend WithEvents flpPages As FlowLayoutPanel
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
+    Friend WithEvents ReportButton As Button
+    Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
+    Friend WithEvents cmbReportOption As ComboBox
 End Class

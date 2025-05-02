@@ -62,6 +62,10 @@
     <Reference Include="Azure.Identity, Version=1.11.4.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Identity.1.11.4\lib\netstandard2.0\Azure.Identity.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.1.66\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -185,6 +189,7 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
@@ -366,6 +371,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PageRangeSelectorForm.Designer.vb">
+      <DependentUpon>PageRangeSelectorForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PageRangeSelectorForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PAYMENT.Designer.vb">
       <DependentUpon>PAYMENT.vb</DependentUpon>
     </Compile>
@@ -382,6 +393,12 @@
     <Compile Include="Sales.vb" />
     <Compile Include="SalesReportItem.vb" />
     <Compile Include="SalesSumary.vb" />
+    <Compile Include="SALES_REPORT_FILE.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SALES_REPORT_FILE.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SALES_REPORT_FORM.Designer.vb">
       <DependentUpon>SALES_REPORT_FORM.vb</DependentUpon>
     </Compile>
@@ -463,14 +480,24 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PageRangeSelectorForm.resx">
+      <DependentUpon>PageRangeSelectorForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PAYMENT.resx">
       <DependentUpon>PAYMENT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRODUCT_LOOK-UP.resx">
       <DependentUpon>PRODUCT_LOOK-UP.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SALES_REPORT_FILE.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SALES_REPORT_FILE.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SALES_REPORT_FORM.resx">
       <DependentUpon>SALES_REPORT_FORM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SALES_REPORT_VIEWER.resx">
+      <DependentUpon>SALES_REPORT_VIEWER.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STARTUP.resx">
       <DependentUpon>STARTUP.vb</DependentUpon>
@@ -547,6 +574,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
