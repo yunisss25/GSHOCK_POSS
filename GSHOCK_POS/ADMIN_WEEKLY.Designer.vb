@@ -23,9 +23,15 @@ Partial Class ADMIN_WEEKLY
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ADMIN_WEEKLY))
+
+        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend7 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -39,13 +45,20 @@ Partial Class ADMIN_WEEKLY
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+
+        Me.ChartSales = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label3 = New System.Windows.Forms.Label()
+
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.btnRefresh = New System.Windows.Forms.Button()
+
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ChartSales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -194,6 +207,51 @@ Partial Class ADMIN_WEEKLY
         Me.Button2.Text = "CASHIER 1"
         Me.Button2.UseVisualStyleBackColor = True
         '
+
+        'ChartSales
+        '
+        Me.ChartSales.BackColor = System.Drawing.Color.DimGray
+        ChartArea7.Name = "ChartArea1"
+        Me.ChartSales.ChartAreas.Add(ChartArea7)
+        Legend7.Name = "Legend1"
+        Me.ChartSales.Legends.Add(Legend7)
+        Me.ChartSales.Location = New System.Drawing.Point(386, 325)
+        Me.ChartSales.Name = "ChartSales"
+        Me.ChartSales.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
+        Series7.ChartArea = "ChartArea1"
+        Series7.Legend = "Legend1"
+        Series7.Name = "Series1"
+        Me.ChartSales.Series.Add(Series7)
+        Me.ChartSales.Size = New System.Drawing.Size(640, 310)
+        Me.ChartSales.TabIndex = 17
+        Me.ChartSales.Text = "Chart1"
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(626, 667)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(174, 45)
+        Me.Button1.TabIndex = 18
+        Me.Button1.Text = "LOAD CHART"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(386, 299)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 19
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(592, 305)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(39, 13)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Label3"
+
         'Chart1
         '
         Me.Chart1.BackColor = System.Drawing.Color.DimGray
@@ -221,6 +279,7 @@ Partial Class ADMIN_WEEKLY
         Me.btnRefresh.TabIndex = 7
         Me.btnRefresh.Text = "REFRESH"
         Me.btnRefresh.UseVisualStyleBackColor = True
+
         '
         'ADMIN_WEEKLY
         '
@@ -228,9 +287,17 @@ Partial Class ADMIN_WEEKLY
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.ChartSales)
+
         Me.ClientSize = New System.Drawing.Size(1386, 788)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.Chart1)
+
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
@@ -243,7 +310,7 @@ Partial Class ADMIN_WEEKLY
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ChartSales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -261,6 +328,13 @@ Partial Class ADMIN_WEEKLY
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents btnClose As Button
+
+    Friend WithEvents ChartSales As DataVisualization.Charting.Chart
+    Friend WithEvents Button1 As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label3 As Label
+
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents btnRefresh As Button
+
 End Class

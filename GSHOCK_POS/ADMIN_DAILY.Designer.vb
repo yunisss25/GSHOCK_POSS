@@ -37,15 +37,16 @@ Partial Class ADMIN_DAILY
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.ChartSales = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnLoadSales = New System.Windows.Forms.Button()
+        Me.dtpSaleDate = New System.Windows.Forms.DateTimePicker()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ChartSales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel3
@@ -169,8 +170,25 @@ Partial Class ADMIN_DAILY
         Me.Button2.Text = "CASHIER 1"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Chart1
+        'ChartSales
         '
+
+        Me.ChartSales.BackColor = System.Drawing.Color.DimGray
+        ChartArea1.Name = "ChartArea1"
+        Me.ChartSales.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.ChartSales.Legends.Add(Legend1)
+        Me.ChartSales.Location = New System.Drawing.Point(365, 288)
+        Me.ChartSales.Name = "ChartSales"
+        Me.ChartSales.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.ChartSales.Series.Add(Series1)
+        Me.ChartSales.Size = New System.Drawing.Size(679, 380)
+        Me.ChartSales.TabIndex = 20
+        Me.ChartSales.Text = "Chart1"
+
         Me.Chart1.BackColor = System.Drawing.Color.DimGray
         ChartArea2.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea2)
@@ -211,15 +229,22 @@ Partial Class ADMIN_DAILY
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "SALES OVERVIEW"
         '
-        'Button1
+        'btnLoadSales
         '
-        Me.Button1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(586, 662)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(174, 45)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "LOAD CHART"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnLoadSales.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLoadSales.Location = New System.Drawing.Point(998, 692)
+        Me.btnLoadSales.Name = "btnLoadSales"
+        Me.btnLoadSales.Size = New System.Drawing.Size(174, 45)
+        Me.btnLoadSales.TabIndex = 3
+        Me.btnLoadSales.Text = "LOAD CHART"
+        Me.btnLoadSales.UseVisualStyleBackColor = True
+        '
+        'dtpSaleDate
+        '
+        Me.dtpSaleDate.Location = New System.Drawing.Point(365, 262)
+        Me.dtpSaleDate.Name = "dtpSaleDate"
+        Me.dtpSaleDate.Size = New System.Drawing.Size(200, 20)
+        Me.dtpSaleDate.TabIndex = 21
         '
         'ADMIN_DAILY
         '
@@ -227,9 +252,16 @@ Partial Class ADMIN_DAILY
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.dtpSaleDate)
+        Me.Controls.Add(Me.btnLoadSales)
+        Me.Controls.Add(Me.ChartSales)
+
         Me.ClientSize = New System.Drawing.Size(1386, 788)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Chart1)
+
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel2)
@@ -242,7 +274,7 @@ Partial Class ADMIN_DAILY
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ChartSales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -258,8 +290,9 @@ Partial Class ADMIN_DAILY
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents btnClose As Button
-    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents ChartSales As DataVisualization.Charting.Chart
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnLoadSales As Button
+    Friend WithEvents dtpSaleDate As DateTimePicker
 End Class

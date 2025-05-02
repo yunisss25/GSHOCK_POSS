@@ -146,6 +146,14 @@ Partial Class STARTUP
     Friend WithEvents Label1 As Label
     Friend WithEvents btnClose As Button
 
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        ADMIN_LOGIN.ShowDialog()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
     Private Sub STARTUP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -170,6 +178,7 @@ Partial Class STARTUP
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
 
     End Sub
 End Class
