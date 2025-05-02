@@ -28,14 +28,12 @@ Public Class ADMIN_DAILY
         Me.Dispose()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         LoadData()
     End Sub
 
     Public Function GetHourlySalesForDay(targetDate As Date) As List(Of HourlySales)
         Dim sql As String = "
-        DECLARE @TargetDate DATE = @SaleDate;
-
         WITH Hours AS (
             SELECT TOP 24 
                 RIGHT('0' + CAST(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) - 1 AS VARCHAR), 2) + ':00' AS HourSlot
@@ -46,8 +44,8 @@ Public Class ADMIN_DAILY
             ISNULL(SUM(s.Amount), 0) AS TotalSales
         FROM Hours h
         LEFT JOIN SalesReport s 
-            ON FORMAT(s.SaleDate, 'HH:00') = h.HourSlot
-            AND CAST(s.SaleDate AS DATE) = @TargetDate
+            ON DATEPART(HOUR, s.SaleDate) = CAST(LEFT(h.HourSlot, 2) AS INT)
+            AND CAST(s.SaleDate AS DATE) = @SaleDate
         GROUP BY h.HourSlot
         ORDER BY h.HourSlot;"
 
@@ -56,14 +54,8 @@ Public Class ADMIN_DAILY
         End Using
     End Function
 
+
     Private Sub LoadHourlySalesChart(saleDate As Date)
-        ChartSales.ChartAreas(0).AxisX.LabelStyle.Angle = -90
-        ChartSales.ChartAreas(0).AxisX.LabelStyle.Font = New Font("Segoe UI", 8)
-        ChartSales.ChartAreas(0).AxisY.LabelStyle.Font = New Font("Segoe UI", 8)
-
-        ChartSales.ChartAreas(0).InnerPlotPosition = New ElementPosition(10, 10, 80, 80)
-        ChartSales.ChartAreas(0).Position = New ElementPosition(10, 10, 85, 80)
-
         ChartSales.Series.Clear()
         ChartSales.Titles.Clear()
         ChartSales.Titles.Add("Hourly Sales for " & saleDate.ToShortDateString())
@@ -79,31 +71,40 @@ Public Class ADMIN_DAILY
             series.Points.AddXY(sale.HourSlot, sale.TotalSales)
         Next
 
+        With ChartSales.ChartAreas(0)
+            .AxisX.Title = "Hour"
+            .AxisX.Interval = 1
+            .AxisX.LabelStyle.Angle = -90
+            .AxisX.MajorGrid.Enabled = False
 
-        With ChartSales.ChartAreas(0).AxisX
-            .Title = "Hour"
-            .Interval = 1
-            .LabelStyle.Angle = -90
-            .MajorGrid.Enabled = False
+            .AxisY.Title = "Total Sales"
+            .AxisY.MajorGrid.LineDashStyle = DataVisualization.Charting.ChartDashStyle.Dot
+
+            .AxisX.LabelStyle.Font = New Font("Segoe UI", 8)
+            .AxisY.LabelStyle.Font = New Font("Segoe UI", 8)
+            .InnerPlotPosition = New ElementPosition(10, 10, 80, 80)
+            .Position = New ElementPosition(10, 10, 85, 80)
+            .RecalculateAxesScale()
         End With
-
-        With ChartSales.ChartAreas(0).AxisY
-            .Title = "Total Sales"
-            .MajorGrid.LineDashStyle = DataVisualization.Charting.ChartDashStyle.Dot
-        End With
-
-        ChartSales.ChartAreas(0).RecalculateAxesScale()
     End Sub
+
 
     Private Sub LoadData()
         Try
-            LoadHourlySalesChart(Date.Today)
+            Dim selectedDate As Date = dtpSaleDate.Value.Date
+            LoadHourlySalesChart(selectedDate)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
+    Private Sub btnLoadSales_Click(sender As Object, e As EventArgs) Handles btnLoadSales.Click
+        LoadData()
+    End Sub
+
+
     Private Sub ADMIN_DAILY_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtpSaleDate.Value = Date.Today
         LoadData()
     End Sub
 End Class

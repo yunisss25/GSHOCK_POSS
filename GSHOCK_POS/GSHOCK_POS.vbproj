@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{84405897-DD4F-4846-A5DD-33B3D86494CC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>GSHOCK_POS.ADMIN_MONTHLY</StartupObject>
+    <StartupObject>GSHOCK_POS.SALES_REPORT</StartupObject>
     <RootNamespace>GSHOCK_POS</RootNamespace>
     <AssemblyName>GSHOCK_POS</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -16,6 +16,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -26,6 +27,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>GSHOCK_POS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +38,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>GSHOCK_POS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -120,7 +123,9 @@
     <Reference Include="Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
       <HintPath>..\packages\Svg.3.4.7\lib\net472\Svg.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -376,6 +381,12 @@
     <Compile Include="SaleRecord.vb" />
     <Compile Include="Sales.vb" />
     <Compile Include="SalesSumary.vb" />
+    <Compile Include="SALES_REPORT.Designer.vb">
+      <DependentUpon>SALES_REPORT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SALES_REPORT.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="STARTUP.Designer.vb">
       <DependentUpon>STARTUP.vb</DependentUpon>
     </Compile>
@@ -450,6 +461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PRODUCT_LOOK-UP.resx">
       <DependentUpon>PRODUCT_LOOK-UP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SALES_REPORT.resx">
+      <DependentUpon>SALES_REPORT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STARTUP.resx">
       <DependentUpon>STARTUP.vb</DependentUpon>
