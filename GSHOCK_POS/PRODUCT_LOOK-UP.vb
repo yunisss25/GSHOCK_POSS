@@ -3,7 +3,7 @@
 Public Class PRODUCT_LOOK_UP
 
     ' Connection String
-    Private con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+    Private con As New SqlConnection("Data Source=MS-SOPHIE;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
     Private total As Decimal = 0
 
     ' Store matched products
@@ -25,7 +25,7 @@ Public Class PRODUCT_LOOK_UP
 
     Private Sub LoadData()
         Try
-            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=MS-SOPHIE;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
 
                 Dim inventoryAdapter As New SqlDataAdapter("SELECT * FROM gshock.dbo.products", con)
@@ -60,7 +60,7 @@ Public Class PRODUCT_LOOK_UP
         If quantity <= 0 Then Exit Sub
 
         Try
-            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=MS-SOPHIE;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
 
                 Dim cmd As New SqlCommand("SELECT id, productname, series, price, quantity FROM gshock.dbo.products WHERE id = @id", con)
@@ -129,9 +129,25 @@ Public Class PRODUCT_LOOK_UP
             If payment < 0 Then
                 MessageBox.Show("Payment cannot be negative!")
             ElseIf payment >= total Then
-                TextBox4.Text = (payment - total).ToString("F2")
+                ' Set TextBox4.Text to show the payment amount formatted as currency
+                TextBox4.Text = payment.ToString("F2")
+
+                ' Insert payment details into the database
+                Try
+                    Using con As New SqlConnection("Data Source=MS-SOPHIE;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+                        con.Open()
+                        Dim cmd As New SqlCommand("INSERT INTO gshock.dbo.lookup (payment, [date]) VALUES (@payment, @date)", con)
+                        cmd.Parameters.AddWithValue("@payment", payment)
+                        cmd.Parameters.AddWithValue("@date", DateTime.Now)
+                        cmd.ExecuteNonQuery()
+                    End Using
+                Catch ex As Exception
+                    MessageBox.Show("Error saving change: " & ex.Message)
+                End Try
+
+                ' Notify user of success
                 MessageBox.Show("Payment successful! Change: " & TextBox4.Text)
-                LoadData()
+                LoadData() ' Assuming LoadData is a method you have defined elsewhere
             Else
                 MessageBox.Show("Insufficient payment!")
             End If
@@ -139,6 +155,7 @@ Public Class PRODUCT_LOOK_UP
             MessageBox.Show("Invalid payment amount!")
         End If
     End Sub
+
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         StartNewTransaction()
@@ -152,7 +169,7 @@ Public Class PRODUCT_LOOK_UP
         TextBox4.Clear()
 
         Try
-            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=MS-SOPHIE;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
                 Dim cmd As New SqlCommand("DELETE FROM gshock.dbo.lookup", con)
                 cmd.ExecuteNonQuery()
@@ -167,7 +184,7 @@ Public Class PRODUCT_LOOK_UP
 
     Private Sub PRODUCT_LOOK_UP_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
-            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=MS-SOPHIE;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 Dim cmd As New SqlCommand("DELETE FROM gshock.dbo.lookup", con)
                 cmd.ExecuteNonQuery()
             End Using
@@ -261,7 +278,7 @@ Public Class PRODUCT_LOOK_UP
         End If
 
         Try
-            Using con As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            Using con As New SqlConnection("Data Source=MS-SOPHIE;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 con.Open()
 
                 Dim cmd As New SqlCommand("SELECT id, productname, series, price FROM gshock.dbo.products WHERE id = @id", con)
