@@ -12,7 +12,7 @@ Public Class SALES_REPORT_FORM
     Private currentPageGroup As Integer = 1
     Private Const pagesPerGroup As Integer = 5
 
-
+    Private WithEvents salesDependency As SqlDependency
 
     <DllImport("user32.dll")>
     Public Shared Function SendMessage(hWnd As IntPtr, Msg As Integer, wParam As Integer, lParam As Integer) As Integer
@@ -26,7 +26,6 @@ Public Class SALES_REPORT_FORM
     Private Const HTCAPTION As Integer = 2
 
     Private Sub SALES_REPORT_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 
     Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown
@@ -313,6 +312,8 @@ Public Class SALES_REPORT_FORM
     End Function
 
 
+    Private Sub ReportButton_Click(sender As Object, e As EventArgs) Handles ReportButton.Click
 
+    End Sub
 
 End Class
