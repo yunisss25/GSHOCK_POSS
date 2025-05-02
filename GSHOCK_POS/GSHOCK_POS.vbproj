@@ -380,6 +380,7 @@
     </Compile>
     <Compile Include="SaleRecord.vb" />
     <Compile Include="Sales.vb" />
+    <Compile Include="SalesReportItem.vb" />
     <Compile Include="SalesSumary.vb" />
     <Compile Include="SALES_REPORT.Designer.vb">
       <DependentUpon>SALES_REPORT.vb</DependentUpon>
