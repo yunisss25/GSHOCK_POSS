@@ -33,6 +33,8 @@ Partial Class CARD_CASHIER
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.MP = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -136,6 +138,8 @@ Partial Class CARD_CASHIER
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel3.Controls.Add(Me.Button1)
+        Me.Panel3.Controls.Add(Me.MP)
         Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox1)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
@@ -143,6 +147,30 @@ Partial Class CARD_CASHIER
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1386, 47)
         Me.Panel3.TabIndex = 15
+        '
+        'Button1
+        '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.Color.Red
+        Me.Button1.Location = New System.Drawing.Point(1172, 13)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 32
+        Me.Button1.Text = "RETURN"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'MP
+        '
+        Me.MP.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.MP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.MP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MP.ForeColor = System.Drawing.Color.Red
+        Me.MP.Location = New System.Drawing.Point(1026, 12)
+        Me.MP.Name = "MP"
+        Me.MP.Size = New System.Drawing.Size(126, 24)
+        Me.MP.TabIndex = 31
+        Me.MP.Text = "MAIN PAGE"
+        Me.MP.UseVisualStyleBackColor = False
         '
         'btnClose
         '
@@ -178,9 +206,9 @@ Partial Class CARD_CASHIER
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label5.Location = New System.Drawing.Point(355, 105)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(599, 90)
+        Me.Label5.Size = New System.Drawing.Size(600, 90)
         Me.Label5.TabIndex = 6
-        Me.Label5.Text = "CASH PAYMENT"
+        Me.Label5.Text = "CARD PAYMENT"
         '
         'CARD_CASHIER
         '
@@ -223,4 +251,6 @@ Partial Class CARD_CASHIER
     Friend WithEvents btnClose As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents MP As Button
+    Friend WithEvents Button1 As Button
 End Class

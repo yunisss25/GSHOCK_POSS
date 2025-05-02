@@ -27,8 +27,10 @@ Partial Class CASH_QR
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.MP = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.btnSubmit = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,6 +70,7 @@ Partial Class CASH_QR
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel3.Controls.Add(Me.MP)
         Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox2)
         Me.Panel3.Controls.Add(Me.Button1)
@@ -76,6 +79,19 @@ Partial Class CASH_QR
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1386, 47)
         Me.Panel3.TabIndex = 16
+        '
+        'MP
+        '
+        Me.MP.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.MP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.MP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MP.ForeColor = System.Drawing.Color.Red
+        Me.MP.Location = New System.Drawing.Point(1036, 12)
+        Me.MP.Name = "MP"
+        Me.MP.Size = New System.Drawing.Size(126, 24)
+        Me.MP.TabIndex = 31
+        Me.MP.Text = "MAIN PAGE"
+        Me.MP.UseVisualStyleBackColor = False
         '
         'btnClose
         '
@@ -103,6 +119,16 @@ Partial Class CASH_QR
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
         '
+        'btnSubmit
+        '
+        Me.btnSubmit.Font = New System.Drawing.Font("Arial Narrow", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSubmit.Location = New System.Drawing.Point(413, 641)
+        Me.btnSubmit.Name = "btnSubmit"
+        Me.btnSubmit.Size = New System.Drawing.Size(310, 34)
+        Me.btnSubmit.TabIndex = 17
+        Me.btnSubmit.Text = "CONFIRM PAYMENT"
+        Me.btnSubmit.UseVisualStyleBackColor = True
+        '
         'CASH_QR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -110,6 +136,7 @@ Partial Class CASH_QR
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1386, 788)
+        Me.Controls.Add(Me.btnSubmit)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.PictureBox1)
@@ -130,4 +157,6 @@ Partial Class CASH_QR
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnClose As Button
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents MP As Button
+    Friend WithEvents btnSubmit As Button
 End Class

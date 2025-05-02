@@ -31,6 +31,7 @@ Public Class PAYMENT
         Finally
             conn.Close()
         End Try
+        CASH_CASHIER.Show()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -61,4 +62,7 @@ Public Class PAYMENT
         ' Optional: actions when form loads
     End Sub
 
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
 End Class

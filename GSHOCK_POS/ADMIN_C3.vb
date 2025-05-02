@@ -2,133 +2,150 @@
 Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class ADMIN_C3
-
     ' SQL Connection String
-    Dim conn As New SqlConnection("Data Source=172.20.10.2;Initial Catalog=gshock;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+    Dim conn As New SqlConnection("Data Source=172.20.10.2;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
 
+    ' Reference to previous form (Admin or Manager)
+    Private previousForm As Form
+
+    ' Constructor to receive previous form
+    Public Sub New(prev As Form)
+        InitializeComponent()
+        previousForm = prev
+    End Sub
+
+    ' On load, populate charts
     Private Sub ADMIN_C3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadTotalPrice()
-        LoadWeeklyTotal()
-        LoadMonthlyTotal()
+        RefreshSales()
     End Sub
 
-    ' ======== CHART 1: Total Price (Overall) ========
-    Private Sub LoadTotalPrice()
-        Dim totalPrice As Decimal = 0
+    ' ======== Refresh all charts ========
+    Private Sub RefreshSales()
+        LoadDailySales()
+        LoadWeeklySales()
+        LoadMonthlySales()
+    End Sub
 
-        Dim cmd As New SqlCommand("SELECT SUM(price) FROM products", conn)
+    ' ======== CHART 1: Daily Sales ========
+    Private Sub LoadDailySales()
+        Dim dailySales As Decimal = 0
+        Dim cmdText As String = "SELECT ISNULL(SUM(total), 0) FROM gshock.dbo.lookup " &
+                                "WHERE CAST([date] AS DATE) = CAST(GETDATE() AS DATE)"
 
         Try
             conn.Open()
-            Dim result = cmd.ExecuteScalar()
+            Dim cmd As New SqlCommand(cmdText, conn)
+            dailySales = Convert.ToDecimal(cmd.ExecuteScalar())
 
-            If result IsNot DBNull.Value Then
-                totalPrice = Convert.ToDecimal(result)
-            End If
+            Chart1.Series.Clear()
+            Dim series As New Series("DAILY SALES")
+            series.ChartType = SeriesChartType.Column
+            series.Points.AddXY("TODAY", dailySales)
+            Chart1.Series.Add(series)
+
+            series.IsValueShownAsLabel = True
+            series.LabelFormat = "₱#,##0.00"
+            Chart1.Titles.Clear()
+            Chart1.Titles.Add("Today's Sales")
+            Chart1.ChartAreas(0).AxisY.LabelStyle.Format = "₱#,##0"
 
         Catch ex As Exception
-            MessageBox.Show("Error retrieving total price: " & ex.Message)
+            MessageBox.Show("Error retrieving daily sales: " & ex.Message)
         Finally
-            conn.Close()
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
-
-        ' Display in Chart1
-        Chart1.Series.Clear()
-        Chart1.Series.Add("Series1")
-        Chart1.Series("Series1").ChartType = SeriesChartType.Column
-        Chart1.Series("Series1").Points.AddXY("Total", totalPrice)
     End Sub
 
-    ' ======== CHART 2: Weekly Total ========
-    Private Sub LoadWeeklyTotal()
-        Chart2.Series.Clear()
-        Chart2.Series.Add("Series1")
-        Chart2.Series("Series1").ChartType = SeriesChartType.Column
+    ' ======== CHART 2: Weekly Sales ========
+    Private Sub LoadWeeklySales()
+        Dim weeklySales As Decimal = 0
+        Dim cmdText As String = "SELECT ISNULL(SUM(total), 0) FROM gshock.dbo.lookup " &
+                                "WHERE [date] >= DATEADD(day, -7, CAST(GETDATE() AS DATE)) " &
+                                "AND [date] <= GETDATE()"
 
         Try
             conn.Open()
+            Dim cmd As New SqlCommand(cmdText, conn)
+            weeklySales = Convert.ToDecimal(cmd.ExecuteScalar())
 
-            Dim query As String = "
-            SELECT 
-                DATEPART(WEEK, [date]) AS WeekNumber, 
-                ISNULL(SUM(price), 0) AS TotalPrice
-            FROM Sales
-            WHERE [date] >= DATEADD(YEAR, DATEDIFF(YEAR, 0, GETDATE()), 0) 
-              AND [date] < DATEADD(YEAR, DATEDIFF(YEAR, 0, GETDATE()) + 1, 0)
-            GROUP BY DATEPART(WEEK, [date])
-            ORDER BY WeekNumber
-        "
+            Chart2.Series.Clear()
+            Dim series As New Series("WEEKLY SALES")
+            series.ChartType = SeriesChartType.Column
+            series.Points.AddXY("LAST 7 DAYS", weeklySales)
+            Chart2.Series.Add(series)
 
-            Dim cmd As New SqlCommand(query, conn)
-            Dim reader As SqlDataReader = cmd.ExecuteReader()
-
-            While reader.Read()
-                Dim weekNumber As Integer = If(reader("WeekNumber") IsNot DBNull.Value, Convert.ToInt32(reader("WeekNumber")), 0)
-                Dim totalPrice As Decimal = If(reader("TotalPrice") IsNot DBNull.Value, Convert.ToDecimal(reader("TotalPrice")), 0D)
-
-                ' Only add if weekNumber > 0
-                If weekNumber > 0 Then
-                    Chart2.Series("Series1").Points.AddXY("Week " & weekNumber, totalPrice)
-                End If
-            End While
-
-            reader.Close()
+            series.IsValueShownAsLabel = True
+            series.LabelFormat = "₱#,##0.00"
+            Chart2.Titles.Clear()
+            Chart2.Titles.Add("Weekly Sales")
+            Chart2.ChartAreas(0).AxisY.LabelStyle.Format = "₱#,##0"
 
         Catch ex As Exception
-            MessageBox.Show("Error loading weekly totals: " & ex.Message)
+            MessageBox.Show("Error retrieving weekly sales: " & ex.Message)
         Finally
-            conn.Close()
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
     End Sub
 
-
-    ' ======== CHART 3: Monthly Total ========
-    Private Sub LoadMonthlyTotal()
-        Chart3.Series.Clear()
-        Chart3.Series.Add("Series1")
-        Chart3.Series("Series1").ChartType = SeriesChartType.Column
+    ' ======== CHART 3: Monthly Sales ========
+    Private Sub LoadMonthlySales()
+        Dim monthlySales As Decimal = 0
+        Dim cmdText As String = "SELECT ISNULL(SUM(total), 0) FROM gshock.dbo.lookup " &
+                                "WHERE [date] >= DATEADD(month, -1, CAST(GETDATE() AS DATE)) " &
+                                "AND [date] <= GETDATE()"
 
         Try
             conn.Open()
+            Dim cmd As New SqlCommand(cmdText, conn)
+            monthlySales = Convert.ToDecimal(cmd.ExecuteScalar())
 
-            Dim query As String = "
-                SELECT DATEPART(MONTH, [date]) AS MonthNumber, SUM(price) AS TotalPrice
-                FROM Sales
-                WHERE YEAR([date]) = YEAR(GETDATE())
-                GROUP BY DATEPART(MONTH, [date])
-                ORDER BY MonthNumber
-            "
+            Chart3.Series.Clear()
+            Dim series As New Series("MONTHLY SALES")
+            series.ChartType = SeriesChartType.Column
+            series.Points.AddXY("LAST 30 DAYS", monthlySales)
+            Chart3.Series.Add(series)
 
-            Dim cmd As New SqlCommand(query, conn)
-            Dim reader As SqlDataReader = cmd.ExecuteReader()
-
-            While reader.Read()
-                Dim monthNumber As Integer = Convert.ToInt32(reader("MonthNumber"))
-                Dim totalPrice As Decimal = Convert.ToDecimal(reader("TotalPrice"))
-
-                ' Display month as "Jan", "Feb", etc.
-                Dim monthName As String = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(monthNumber)
-
-                Chart3.Series("Series1").Points.AddXY(monthName, totalPrice)
-            End While
-
-            reader.Close()
+            series.IsValueShownAsLabel = True
+            series.LabelFormat = "₱#,##0.00"
+            Chart3.Titles.Clear()
+            Chart3.Titles.Add("Monthly Sales")
+            Chart3.ChartAreas(0).AxisY.LabelStyle.Format = "₱#,##0"
 
         Catch ex As Exception
-            MessageBox.Show("Error loading monthly totals: " & ex.Message)
+            MessageBox.Show("Error retrieving monthly sales: " & ex.Message)
         Finally
-            conn.Close()
+            If conn.State = ConnectionState.Open Then conn.Close()
         End Try
     End Sub
 
-    ' ======== Close Button ========
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
+    ' ======== Refresh Button ========
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        RefreshSales()
     End Sub
 
-    ' ======== Open PRODUCT LOOK UP ========
+    ' ======== Product Lookup Button ========
     Private Sub MP_Click(sender As Object, e As EventArgs) Handles MP.Click
         PRODUCT_LOOK_UP.Show()
+        Me.Hide()
+    End Sub
+
+    ' ======== Return Button ========
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        If previousForm IsNot Nothing Then
+            previousForm.Show()
+            Me.Close()
+        Else
+            MessageBox.Show("Previous form not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+    ' ======== Close App Button ========
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Application.Exit()
+    End Sub
+
+    ' Optional — Remove if unused
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
     End Sub
 
 End Class

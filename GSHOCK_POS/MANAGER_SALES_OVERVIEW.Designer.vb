@@ -24,8 +24,8 @@ Partial Class MANAGER_SALES_OVERVIEW
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MANAGER_SALES_OVERVIEW))
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MP = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -36,7 +36,6 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.C3 = New System.Windows.Forms.Button()
         Me.C2 = New System.Windows.Forms.Button()
         Me.C1 = New System.Windows.Forms.Button()
-        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -48,12 +47,24 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox1)
-        Me.Panel3.Controls.Add(Me.MP)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1370, 47)
+        Me.Panel3.Size = New System.Drawing.Size(1386, 47)
         Me.Panel3.TabIndex = 25
+        '
+        'btnClose
+        '
+        Me.btnClose.BackColor = System.Drawing.Color.Transparent
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.Color.Red
+        Me.btnClose.Location = New System.Drawing.Point(1274, 12)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(60, 24)
+        Me.btnClose.TabIndex = 4
+        Me.btnClose.Text = "X"
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -67,19 +78,6 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        '
-        'MP
-        '
-        Me.MP.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.MP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.MP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MP.ForeColor = System.Drawing.Color.Red
-        Me.MP.Location = New System.Drawing.Point(1128, 12)
-        Me.MP.Name = "MP"
-        Me.MP.Size = New System.Drawing.Size(126, 24)
-        Me.MP.TabIndex = 0
-        Me.MP.Text = "MAIN PAGE"
-        Me.MP.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -114,7 +112,7 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 47)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(180, 702)
+        Me.Panel1.Size = New System.Drawing.Size(180, 741)
         Me.Panel1.TabIndex = 28
         '
         'MONTHLY
@@ -154,9 +152,9 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.Panel2.Controls.Add(Me.C2)
         Me.Panel2.Controls.Add(Me.C1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(1190, 47)
+        Me.Panel2.Location = New System.Drawing.Point(1206, 47)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(180, 702)
+        Me.Panel2.Size = New System.Drawing.Size(180, 741)
         Me.Panel2.TabIndex = 29
         '
         'C3
@@ -189,26 +187,13 @@ Partial Class MANAGER_SALES_OVERVIEW
         Me.C1.Text = "CASHIER 1"
         Me.C1.UseVisualStyleBackColor = True
         '
-        'btnClose
-        '
-        Me.btnClose.BackColor = System.Drawing.Color.Transparent
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.ForeColor = System.Drawing.Color.Red
-        Me.btnClose.Location = New System.Drawing.Point(1274, 12)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(60, 24)
-        Me.btnClose.TabIndex = 4
-        Me.btnClose.Text = "X"
-        Me.btnClose.UseVisualStyleBackColor = False
-        '
         'MANAGER_SALES_OVERVIEW
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.ClientSize = New System.Drawing.Size(1386, 788)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
@@ -228,7 +213,6 @@ Partial Class MANAGER_SALES_OVERVIEW
 
     Friend WithEvents Panel3 As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents MP As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel

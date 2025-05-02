@@ -43,6 +43,7 @@ Partial Class ADMIN_C2
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,13 +67,14 @@ Partial Class ADMIN_C2
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.btnClose)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.MP)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1370, 47)
+        Me.Panel1.Size = New System.Drawing.Size(1386, 47)
         Me.Panel1.TabIndex = 14
         '
         'btnClose
@@ -94,7 +96,7 @@ Partial Class ADMIN_C2
         Me.MP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.MP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.MP.Location = New System.Drawing.Point(1147, 12)
+        Me.MP.Location = New System.Drawing.Point(1038, 12)
         Me.MP.Name = "MP"
         Me.MP.Size = New System.Drawing.Size(126, 24)
         Me.MP.TabIndex = 0
@@ -200,13 +202,26 @@ Partial Class ADMIN_C2
         Me.Chart1.TabIndex = 24
         Me.Chart1.Text = "Chart1"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Red
+        Me.Button1.Location = New System.Drawing.Point(1194, 12)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(60, 24)
+        Me.Button1.TabIndex = 23
+        Me.Button1.Text = "<"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'ADMIN_C2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.ClientSize = New System.Drawing.Size(1386, 788)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Chart2)
@@ -238,4 +253,5 @@ Partial Class ADMIN_C2
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents Button1 As Button
 End Class

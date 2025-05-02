@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ADMIN_DAILY
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,16 +20,15 @@ Partial Class ADMIN_DAILY
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ADMIN_DAILY))
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MONTHLY = New System.Windows.Forms.Button()
         Me.WEEKLY = New System.Windows.Forms.Button()
@@ -55,11 +54,10 @@ Partial Class ADMIN_DAILY
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox1)
-        Me.Panel3.Controls.Add(Me.Button5)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1370, 47)
+        Me.Panel3.Size = New System.Drawing.Size(1386, 47)
         Me.Panel3.TabIndex = 15
         '
         'btnClose
@@ -88,19 +86,6 @@ Partial Class ADMIN_DAILY
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.Red
-        Me.Button5.Location = New System.Drawing.Point(1132, 12)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(126, 24)
-        Me.Button5.TabIndex = 0
-        Me.Button5.Text = "MAIN PAGE"
-        Me.Button5.UseVisualStyleBackColor = False
-        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow
@@ -110,7 +95,7 @@ Partial Class ADMIN_DAILY
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 47)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(180, 702)
+        Me.Panel1.Size = New System.Drawing.Size(180, 741)
         Me.Panel1.TabIndex = 16
         '
         'MONTHLY
@@ -150,9 +135,9 @@ Partial Class ADMIN_DAILY
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(1190, 47)
+        Me.Panel2.Location = New System.Drawing.Point(1206, 47)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(180, 702)
+        Me.Panel2.Size = New System.Drawing.Size(180, 741)
         Me.Panel2.TabIndex = 17
         '
         'Button4
@@ -187,6 +172,7 @@ Partial Class ADMIN_DAILY
         '
         'ChartSales
         '
+
         Me.ChartSales.BackColor = System.Drawing.Color.DimGray
         ChartArea1.Name = "ChartArea1"
         Me.ChartSales.ChartAreas.Add(ChartArea1)
@@ -202,6 +188,22 @@ Partial Class ADMIN_DAILY
         Me.ChartSales.Size = New System.Drawing.Size(679, 380)
         Me.ChartSales.TabIndex = 20
         Me.ChartSales.Text = "Chart1"
+
+        Me.Chart1.BackColor = System.Drawing.Color.DimGray
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend2)
+        Me.Chart1.Location = New System.Drawing.Point(365, 319)
+        Me.Chart1.Name = "Chart1"
+        Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart1.Series.Add(Series2)
+        Me.Chart1.Size = New System.Drawing.Size(640, 310)
+        Me.Chart1.TabIndex = 20
+        Me.Chart1.Text = "Chart1"
         '
         'Label2
         '
@@ -250,10 +252,16 @@ Partial Class ADMIN_DAILY
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+
         Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.Controls.Add(Me.dtpSaleDate)
         Me.Controls.Add(Me.btnLoadSales)
         Me.Controls.Add(Me.ChartSales)
+
+        Me.ClientSize = New System.Drawing.Size(1386, 788)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Chart1)
+
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel2)
@@ -273,7 +281,6 @@ Partial Class ADMIN_DAILY
     End Sub
     Friend WithEvents Panel3 As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Button5 As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents MONTHLY As Button
     Friend WithEvents WEEKLY As Button
