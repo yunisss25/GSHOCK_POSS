@@ -2,7 +2,7 @@
 Imports Microsoft.Data.SqlClient
 Imports Dapper
 
-Public Class SALES_REPORT
+Public Class SALES_REPORT_FORM
 
     Private currentPage As Integer = 1
     Private pageSize As Integer = 20
