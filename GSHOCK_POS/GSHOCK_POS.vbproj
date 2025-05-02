@@ -318,6 +318,9 @@
     <Compile Include="PRODUCT_LOOK-UP.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SaleRecord.vb" />
+    <Compile Include="Sales.vb" />
+    <Compile Include="SalesSumary.vb" />
     <Compile Include="STARTUP.Designer.vb">
       <DependentUpon>STARTUP.vb</DependentUpon>
     </Compile>
@@ -413,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PRODUCT_LOOK-UP.resx">
       <DependentUpon>PRODUCT_LOOK-UP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesReport.resx">
+      <DependentUpon>SalesReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STARTUP.resx">
       <DependentUpon>STARTUP.vb</DependentUpon>
