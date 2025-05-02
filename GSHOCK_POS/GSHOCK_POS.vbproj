@@ -67,6 +67,10 @@
     <Reference Include="Azure.Identity, Version=1.11.4.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Identity.1.11.4\lib\netstandard2.0\Azure.Identity.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.1.66\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -427,6 +431,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PageRangeSelectorForm.Designer.vb">
+      <DependentUpon>PageRangeSelectorForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PageRangeSelectorForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PAYMENT.Designer.vb">
       <DependentUpon>PAYMENT.vb</DependentUpon>
     </Compile>
@@ -444,6 +454,12 @@
 
     <Compile Include="SalesReportItem.vb" />
     <Compile Include="SalesSumary.vb" />
+    <Compile Include="SALES_REPORT_FILE.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SALES_REPORT_FILE.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SALES_REPORT_FORM.Designer.vb">
       <DependentUpon>SALES_REPORT_FORM.vb</DependentUpon>
     </Compile>
@@ -550,19 +566,24 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PageRangeSelectorForm.resx">
+      <DependentUpon>PageRangeSelectorForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PAYMENT.resx">
       <DependentUpon>PAYMENT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PRODUCT_LOOK-UP.resx">
       <DependentUpon>PRODUCT_LOOK-UP.vb</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="SALES_REPORT_FORM.resx">
       <DependentUpon>SALES_REPORT_FORM.vb</DependentUpon>
 
     <EmbeddedResource Include="SalesReport.resx">
       <DependentUpon>SalesReport.vb</DependentUpon>
 
+    </EmbeddedResource>
+    <EmbeddedResource Include="SALES_REPORT_VIEWER.resx">
+      <DependentUpon>SALES_REPORT_VIEWER.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STARTUP.resx">
       <DependentUpon>STARTUP.vb</DependentUpon>

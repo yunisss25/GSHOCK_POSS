@@ -104,8 +104,8 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-4M05HEM\SQLEXPRESS;Database=gshock;Integrated Security=True;Encryp"& _ 
-            "t=True;TrustServerCertificate=True;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10))>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=DESKTOP-4M05HEM\SQLEXPRESS;Database=gshock;User ID=backtrack;Password=linu"& _ 
+            "x;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10))>  _
         Public ReadOnly Property ConStr() As String
             Get
                 Return CType(Me("ConStr"),String)
