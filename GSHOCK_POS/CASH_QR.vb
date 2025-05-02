@@ -29,6 +29,15 @@ Public Class CASH_QR
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Me.Close()
+        Application.Exit()
+    End Sub
+
+    Private Sub MP_Click(sender As Object, e As EventArgs) Handles MP.Click
+        PRODUCT_LOOK_UP.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        CRYSTAL.Show()
     End Sub
 End Class

@@ -22,7 +22,7 @@ Partial Class ADMIN_WEEKLY
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Admin_WEEKLY))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ADMIN_WEEKLY))
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
@@ -31,7 +31,6 @@ Partial Class ADMIN_WEEKLY
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MP = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MONTHLY = New System.Windows.Forms.Button()
         Me.WEEKLY = New System.Windows.Forms.Button()
@@ -41,6 +40,7 @@ Partial Class ADMIN_WEEKLY
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -77,11 +77,10 @@ Partial Class ADMIN_WEEKLY
         Me.Panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel3.Controls.Add(Me.btnClose)
         Me.Panel3.Controls.Add(Me.PictureBox1)
-        Me.Panel3.Controls.Add(Me.MP)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1370, 47)
+        Me.Panel3.Size = New System.Drawing.Size(1386, 47)
         Me.Panel3.TabIndex = 14
         '
         'btnClose
@@ -110,19 +109,6 @@ Partial Class ADMIN_WEEKLY
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'MP
-        '
-        Me.MP.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.MP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.MP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MP.ForeColor = System.Drawing.Color.Red
-        Me.MP.Location = New System.Drawing.Point(1132, 12)
-        Me.MP.Name = "MP"
-        Me.MP.Size = New System.Drawing.Size(126, 24)
-        Me.MP.TabIndex = 0
-        Me.MP.Text = "MAIN PAGE"
-        Me.MP.UseVisualStyleBackColor = False
-        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ButtonShadow
@@ -133,7 +119,7 @@ Partial Class ADMIN_WEEKLY
         Me.Panel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.Panel1.Location = New System.Drawing.Point(0, 47)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(180, 702)
+        Me.Panel1.Size = New System.Drawing.Size(180, 741)
         Me.Panel1.TabIndex = 15
         '
         'MONTHLY
@@ -173,9 +159,9 @@ Partial Class ADMIN_WEEKLY
         Me.Panel2.Controls.Add(Me.Button3)
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(1190, 47)
+        Me.Panel2.Location = New System.Drawing.Point(1206, 47)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(180, 702)
+        Me.Panel2.Size = New System.Drawing.Size(180, 741)
         Me.Panel2.TabIndex = 16
         '
         'Button4
@@ -226,13 +212,24 @@ Partial Class ADMIN_WEEKLY
         Me.Chart1.TabIndex = 17
         Me.Chart1.Text = "Chart1"
         '
-        'Admin_WEEKLY
+        'btnRefresh
+        '
+        Me.btnRefresh.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefresh.Location = New System.Drawing.Point(619, 671)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(174, 45)
+        Me.btnRefresh.TabIndex = 7
+        Me.btnRefresh.Text = "REFRESH"
+        Me.btnRefresh.UseVisualStyleBackColor = True
+        '
+        'ADMIN_WEEKLY
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.ClientSize = New System.Drawing.Size(1386, 788)
+        Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -240,7 +237,7 @@ Partial Class ADMIN_WEEKLY
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Admin_WEEKLY"
+        Me.Name = "ADMIN_WEEKLY"
         Me.Text = "ADMIN_WEEKLY"
         Me.Panel3.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -255,7 +252,6 @@ Partial Class ADMIN_WEEKLY
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents MP As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents MONTHLY As Button
     Friend WithEvents WEEKLY As Button
@@ -266,4 +262,5 @@ Partial Class ADMIN_WEEKLY
     Friend WithEvents Button2 As Button
     Friend WithEvents btnClose As Button
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents btnRefresh As Button
 End Class
